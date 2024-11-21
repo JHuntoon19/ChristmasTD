@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnhj6oswgbuoo"]
+
+[ext_resource type="Script" path="res://Scripts/snowman.gd" id="1_jtuch"]
+[ext_resource type="Texture2D" uid="uid://dgycdikpbg5gx" path="res://graphics/Snowman1.png" id="1_t1df6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy6kv"]
+size = Vector2(10.0321, 14.9376)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ph6q"]
+radius = 23.0612
+
+[node name="Snowman" type="Area2D"]
+script = ExtResource("1_jtuch")
+
+[node name="SImgae" type="Sprite2D" parent="."]
+texture = ExtResource("1_t1df6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.015687, 0.0282414)
+shape = SubResource("RectangleShape2D_qy6kv")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_8ph6q")
+
+[node name="AttackDelay" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

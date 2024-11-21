@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8tvy8t4hqjfb"]
+
+[ext_resource type="Script" path="res://Scripts/candy_cane.gd" id="1_12lix"]
+[ext_resource type="Texture2D" uid="uid://c13g2ipeuqn0b" path="res://graphics/CandyCane.png" id="1_dg62s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50aiy"]
+size = Vector2(10.0226, 4.89994)
+
+[node name="CandyCane" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_12lix")
+
+[node name="CCImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_dg62s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.00365448, 0.0330081)
+shape = SubResource("RectangleShape2D_50aiy")

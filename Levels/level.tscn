@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://nab83olx2nfj"]
+
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_1rrgu"]
+[ext_resource type="Texture2D" uid="uid://diln8ableonfh" path="res://graphics/Backgorund1.png" id="1_c2n11"]
+[ext_resource type="PackedScene" uid="uid://o5rgomxw2qwt" path="res://Towers/elf.tscn" id="2_8jdi1"]
+[ext_resource type="PackedScene" uid="uid://cqx788f7m1dki" path="res://Enemy/cow.tscn" id="3_730t8"]
+
+[sub_resource type="Curve2D" id="Curve2D_b48rc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 480, 443, 0, 0, 0, 0, 596, 443, 0, 0, 0, 0, 596, 313, 0, 0, 0, 0, 702, 313, 0, 0, 0, 0, 702, 366, 0, 0, 0, 0, 801, 366)
+}
+point_count = 6
+
+[node name="Level" type="Node"]
+script = ExtResource("1_1rrgu")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="BImage" type="Sprite2D" parent="Background"]
+texture = ExtResource("1_c2n11")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+zoom = Vector2(4, 4)
+process_callback = 0
+
+[node name="Elf" parent="." instance=ExtResource("2_8jdi1")]
+position = Vector2(577, 419)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Enemies"]
+curve = SubResource("Curve2D_b48rc")
+
+[node name="Cow" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(515.627, 443)
+progress = 35.6328
+
+[node name="Cow4" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(561.048, 443)
+progress = 81.0432
+
+[node name="Cow5" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(750.347, 366)
+progress = 453.348
+
+[node name="Cow6" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(702, 346.283)
+rotation = 1.5708
+progress = 385.258
+
+[node name="Cow7" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(658.05, 313)
+progress = 308.045
+
+[node name="Cow8" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(596, 355.378)
+rotation = -1.5708
+progress = 203.616
+
+[node name="Cow9" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(596, 332.629)
+rotation = -1.5708
+progress = 226.346
+
+[node name="Cow2" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(483.889, 443)
+progress = 3.8304
+
+[node name="Cow3" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
+position = Vector2(732.189, 366)
+progress = 435.204
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[connection signal="attack" from="Elf" to="." method="_on_elf_attack"]
