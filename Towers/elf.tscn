@@ -1,7 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://o5rgomxw2qwt"]
+[gd_scene load_steps=5 format=3 uid="uid://by7ygrxmwd2ho"]
 
 [ext_resource type="Texture2D" uid="uid://be482cx06gsm" path="res://graphics/ElfTower1.png" id="1_a3u2p"]
-[ext_resource type="Script" path="res://Scripts/elf.gd" id="1_x5kci"]
+
+[sub_resource type="GDScript" id="GDScript_ylyor"]
+script/source = "extends Area2D
+var enems : Array = []
+@onready var attack_delay = $AttackDelay
+var readyToAttack = true
+signal attack(tower, enemy)
+func _on_range_area_entered(area):
+	enems.append(area)
+
+
+func _on_range_area_exited(area):
+	enems.erase(area)
+
+func _process(delta):
+	if(!enems.is_empty()):
+		if(readyToAttack):
+			readyToAttack = false
+			attack_delay.start()
+			attack.emit(self, enems[0])
+
+
+func _on_attack_delay_timeout():
+	readyToAttack = true
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5up6c"]
 size = Vector2(10, 15.0547)
@@ -10,7 +34,7 @@ size = Vector2(10, 15.0547)
 radius = 34.9168
 
 [node name="Elf" type="Area2D"]
-script = ExtResource("1_x5kci")
+script = SubResource("GDScript_ylyor")
 
 [node name="EImage" type="Sprite2D" parent="."]
 texture = ExtResource("1_a3u2p")
@@ -28,6 +52,7 @@ shape = SubResource("CircleShape2D_u5bax")
 
 [node name="AttackDelay" type="Timer" parent="."]
 wait_time = 0.3
+one_shot = true
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

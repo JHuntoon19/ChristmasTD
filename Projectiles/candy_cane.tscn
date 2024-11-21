@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8tvy8t4hqjfb"]
+[gd_scene load_steps=5 format=3 uid="uid://c8tvy8t4hqjfb"]
 
-[ext_resource type="Script" path="res://Scripts/candy_cane.gd" id="1_12lix"]
 [ext_resource type="Texture2D" uid="uid://c13g2ipeuqn0b" path="res://graphics/CandyCane.png" id="1_dg62s"]
+[ext_resource type="PackedScene" uid="uid://c5f3bah3htew2" path="res://Projectiles/projectile.tscn" id="1_jxueg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_50aiy"]
-size = Vector2(10.0226, 4.89994)
+[sub_resource type="GDScript" id="GDScript_4m5ux"]
+script/source = "extends \"res://Scripts/projectile.gd\"
+func _ready():
+	speed = 50
+"
 
-[node name="CandyCane" type="Area2D"]
-collision_layer = 8
-collision_mask = 2
-script = ExtResource("1_12lix")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kxjl"]
+size = Vector2(9.95961, 4.9798)
 
-[node name="CCImage" type="Sprite2D" parent="."]
+[node name="CandyCane" instance=ExtResource("1_jxueg")]
+script = SubResource("GDScript_4m5ux")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.0644817, -0.203088)
+shape = SubResource("RectangleShape2D_0kxjl")
+
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_dg62s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.00365448, 0.0330081)
-shape = SubResource("RectangleShape2D_50aiy")

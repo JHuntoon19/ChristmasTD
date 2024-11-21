@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qk6x"]
 size = Vector2(14.9782, 9.95935)
 
-[node name="Cow" type="PathFollow2D"]
+[node name="Cow" type="PathFollow2D" groups=["Cow"]]
 script = ExtResource("1_px6ev")
 
 [node name="Cow" type="Area2D" parent="."]

@@ -1,2 +1,3 @@
 extends "res://Scripts/projectile.gd"
-speed = 50
+func _ready():
+	speed = 30

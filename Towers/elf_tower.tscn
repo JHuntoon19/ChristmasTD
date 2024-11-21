@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://6yqamscunved"]
+
+[ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_elj1d"]
+[ext_resource type="Texture2D" uid="uid://be482cx06gsm" path="res://graphics/ElfTower1.png" id="2_brq63"]
+[ext_resource type="Script" path="res://Scripts/elf_tower.gd" id="2_x2r7x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j14po"]
+size = Vector2(10.0877, 15.102)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etfu6"]
+radius = 40.0
+
+[node name="ElfTower" groups=["Elf"] instance=ExtResource("1_elj1d")]
+script = ExtResource("2_x2r7x")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.0524902, -0.0190663)
+shape = SubResource("RectangleShape2D_j14po")
+
+[node name="TSprite" parent="." index="1"]
+texture = ExtResource("2_brq63")
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_etfu6")
+
+[node name="AttackDelay" parent="." index="3"]
+wait_time = 0.3
+one_shot = true

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://nab83olx2nfj"]
+[gd_scene load_steps=8 format=3 uid="uid://nab83olx2nfj"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_1rrgu"]
 [ext_resource type="Texture2D" uid="uid://diln8ableonfh" path="res://graphics/Backgorund1.png" id="1_c2n11"]
-[ext_resource type="PackedScene" uid="uid://o5rgomxw2qwt" path="res://Towers/elf.tscn" id="2_8jdi1"]
+[ext_resource type="PackedScene" uid="uid://cqnd572jq3rwg" path="res://UI/ui.tscn" id="2_gg7t5"]
 [ext_resource type="PackedScene" uid="uid://cqx788f7m1dki" path="res://Enemy/cow.tscn" id="3_730t8"]
+[ext_resource type="PackedScene" uid="uid://6yqamscunved" path="res://Towers/elf_tower.tscn" id="5_bhyaa"]
+[ext_resource type="PackedScene" uid="uid://bcx2gln2q22h" path="res://Towers/snowman_tower.tscn" id="5_xn4mg"]
 
 [sub_resource type="Curve2D" id="Curve2D_b48rc"]
 _data = {
@@ -13,6 +15,8 @@ point_count = 6
 
 [node name="Level" type="Node"]
 script = ExtResource("1_1rrgu")
+
+[node name="UI" parent="." instance=ExtResource("2_gg7t5")]
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(640, 360)
@@ -24,9 +28,6 @@ texture = ExtResource("1_c2n11")
 position = Vector2(640, 360)
 zoom = Vector2(4, 4)
 process_callback = 0
-
-[node name="Elf" parent="." instance=ExtResource("2_8jdi1")]
-position = Vector2(577, 419)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -74,4 +75,17 @@ progress = 435.204
 
 [node name="Projectiles" type="Node2D" parent="."]
 
-[connection signal="attack" from="Elf" to="." method="_on_elf_attack"]
+[node name="ElfTower" parent="." instance=ExtResource("5_bhyaa")]
+position = Vector2(575.044, 414.945)
+
+[node name="SnowmanTower" parent="." instance=ExtResource("5_xn4mg")]
+position = Vector2(687.417, 329.167)
+
+[node name="ElfTower2" parent="." instance=ExtResource("5_bhyaa")]
+position = Vector2(612.876, 331.04)
+
+[node name="SnowmanTower2" parent="." instance=ExtResource("5_xn4mg")]
+position = Vector2(583.284, 369.247)
+
+[connection signal="Elfattack" from="ElfTower" to="." method="_on_elf_tower_elfattack"]
+[connection signal="snowmanAttack" from="SnowmanTower" to="." method="_on_snowman_tower_snowman_attack"]

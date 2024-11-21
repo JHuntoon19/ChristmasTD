@@ -1,0 +1,180 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqnd572jq3rwg"]
+
+[ext_resource type="Script" path="res://UI/ui.gd" id="1_7tf7v"]
+[ext_resource type="Theme" uid="uid://b5q6noveyul6j" path="res://UI/pixel.tres" id="1_jn5r1"]
+[ext_resource type="Texture2D" uid="uid://erc1frg0a1t" path="res://graphics/Coin.png" id="2_l35t8"]
+[ext_resource type="Texture2D" uid="uid://bmp6rvdothve8" path="res://graphics/arrow.png" id="4_ypjvj"]
+[ext_resource type="Texture2D" uid="uid://be482cx06gsm" path="res://graphics/ElfTower1.png" id="5_hbdk0"]
+[ext_resource type="Texture2D" uid="uid://dgycdikpbg5gx" path="res://graphics/Snowman1.png" id="6_rrrkc"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_7tf7v")
+
+[node name="Money" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.059
+anchor_bottom = 0.056
+offset_right = -35.52
+offset_bottom = -0.32
+
+[node name="ColorRect" type="ColorRect" parent="Money"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.7
+anchor_bottom = 1.75
+offset_right = -1.52588e-05
+color = Color(0.192157, 0.192157, 0.192157, 0.545098)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Money"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.7
+anchor_bottom = 1.7
+offset_right = -73.0
+offset_bottom = -30.0
+
+[node name="Label" type="Label" parent="Money/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_jn5r1")
+text = "Money"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Money/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoneyText" type="Label" parent="Money/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_jn5r1")
+text = "0000"
+
+[node name="TextureRect" type="TextureRect" parent="Money/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("2_l35t8")
+stretch_mode = 5
+
+[node name="SideHidden" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ShowSideButton" type="TextureButton" parent="SideHidden"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.18982
+offset_top = 25.7845
+offset_right = 19.1898
+offset_bottom = 38.7845
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(-4, -4)
+keep_pressed_outside = true
+texture_normal = ExtResource("4_ypjvj")
+texture_pressed = ExtResource("4_ypjvj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="SideVisible" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.795
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.399963
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="SideVisible"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.780392, 0.552941, 0.364706, 0.545098)
+
+[node name="SideShownButton" type="Control" parent="SideVisible"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="HideSideButton" type="TextureButton" parent="SideVisible/SideShownButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = 26.0
+offset_right = 16.0
+offset_bottom = 39.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(-4, -4)
+keep_pressed_outside = true
+texture_normal = ExtResource("4_ypjvj")
+texture_pressed = ExtResource("4_ypjvj")
+ignore_texture_size = true
+stretch_mode = 3
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SideVisible"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BG" type="ColorRect" parent="SideVisible/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.196078, 0.392157, 0.784314, 0.784314)
+
+[node name="ElfTowerButton" type="TextureButton" parent="SideVisible/VBoxContainer/HBoxContainer/BG"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_hbdk0")
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="SideVisible/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+color = Color(0.196078, 0.392157, 0.784314, 0.784314)
+
+[node name="TextureButton" type="TextureButton" parent="SideVisible/VBoxContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+texture_normal = ExtResource("6_rrrkc")
+stretch_mode = 5
+
+[connection signal="pressed" from="SideHidden/ShowSideButton" to="." method="_on_show_side_button_pressed"]
+[connection signal="pressed" from="SideVisible/SideShownButton/HideSideButton" to="." method="_on_hide_side_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://kpsenm0edbcl"]
+
+[ext_resource type="Script" path="res://Scripts/tower.gd" id="1_21lq5"]
+
+[node name="Tower" type="Area2D" groups=["Tower"]]
+script = ExtResource("1_21lq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="TSprite" type="Sprite2D" parent="."]
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+
+[node name="AttackDelay" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
