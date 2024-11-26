@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://jo583gh33d7"]
+
+[ext_resource type="Script" path="res://Scripts/present.gd" id="1_k8gpt"]
+[ext_resource type="Texture2D" uid="uid://d62lmut4vfn4" path="res://graphics/Present1.png" id="2_ryn56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbqhy"]
+size = Vector2(9.80003, 9.99868)
+
+[node name="Present" type="Area2D"]
+collision_layer = 256
+collision_mask = 34
+script = ExtResource("1_k8gpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0848122, -0.0487413)
+shape = SubResource("RectangleShape2D_xbqhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ryn56")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

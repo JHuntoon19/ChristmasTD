@@ -1,17 +1,70 @@
-[gd_scene load_steps=8 format=3 uid="uid://nab83olx2nfj"]
+[gd_scene load_steps=12 format=3 uid="uid://nab83olx2nfj"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_1rrgu"]
 [ext_resource type="Texture2D" uid="uid://diln8ableonfh" path="res://graphics/Backgorund1.png" id="1_c2n11"]
 [ext_resource type="PackedScene" uid="uid://cqnd572jq3rwg" path="res://UI/ui.tscn" id="2_gg7t5"]
-[ext_resource type="PackedScene" uid="uid://cqx788f7m1dki" path="res://Enemy/cow.tscn" id="3_730t8"]
-[ext_resource type="PackedScene" uid="uid://6yqamscunved" path="res://Towers/elf_tower.tscn" id="5_bhyaa"]
-[ext_resource type="PackedScene" uid="uid://bcx2gln2q22h" path="res://Towers/snowman_tower.tscn" id="5_xn4mg"]
+[ext_resource type="PackedScene" uid="uid://bdwe07gvvd781" path="res://Santa/santa.tscn" id="6_3rcyo"]
+[ext_resource type="Texture2D" uid="uid://bgerx3c5ci7dm" path="res://graphics/UFO.png" id="7_v6cqn"]
+[ext_resource type="PackedScene" uid="uid://dhhtkrydgdcn3" path="res://End/m_sled.tscn" id="8_ckyel"]
+[ext_resource type="PackedScene" uid="uid://bghphq8lsdnu6" path="res://End/sled.tscn" id="8_h6nh7"]
 
 [sub_resource type="Curve2D" id="Curve2D_b48rc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 480, 443, 0, 0, 0, 0, 596, 443, 0, 0, 0, 0, 596, 313, 0, 0, 0, 0, 702, 313, 0, 0, 0, 0, 702, 366, 0, 0, 0, 0, 801, 366)
+"points": PackedVector2Array(0, 0, 0, 0, 480, 324, 0, 0, 0, 0, 683, 324, 0, 0, 0, 0, 683, 377, 0, 0, 0, 0, 582, 377, 0, 0, 0, 0, 582, 426, 0, 0, 0, 0, 800, 426)
 }
 point_count = 6
+
+[sub_resource type="Animation" id="Animation_eafdh"]
+resource_name = "StartLevel"
+length = 2.0
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 1, 1.33333, 1.53333, 1.73333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 2,
+"values": [Vector2(822, 270), Vector2(785, 314), Vector2(734, 331), Vector2(705, 290), Vector2(645, 283), Vector2(630, 323), Vector2(571, 347), Vector2(558, 305), Vector2(502, 284)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnEnemies"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6xhu1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(822, 270)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nrs8"]
+_data = {
+"RESET": SubResource("Animation_6xhu1"),
+"StartLevel": SubResource("Animation_eafdh")
+}
 
 [node name="Level" type="Node"]
 script = ExtResource("1_1rrgu")
@@ -31,61 +84,52 @@ process_callback = 0
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="Enemies"]
+[node name="MonsterPath" type="Path2D" parent="Enemies"]
 curve = SubResource("Curve2D_b48rc")
-
-[node name="Cow" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(515.627, 443)
-progress = 35.6328
-
-[node name="Cow4" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(561.048, 443)
-progress = 81.0432
-
-[node name="Cow5" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(750.347, 366)
-progress = 453.348
-
-[node name="Cow6" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(702, 346.283)
-rotation = 1.5708
-progress = 385.258
-
-[node name="Cow7" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(658.05, 313)
-progress = 308.045
-
-[node name="Cow8" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(596, 355.378)
-rotation = -1.5708
-progress = 203.616
-
-[node name="Cow9" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(596, 332.629)
-rotation = -1.5708
-progress = 226.346
-
-[node name="Cow2" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(483.889, 443)
-progress = 3.8304
-
-[node name="Cow3" parent="Enemies/Path2D" instance=ExtResource("3_730t8")]
-position = Vector2(732.189, 366)
-progress = 435.204
 
 [node name="Projectiles" type="Node2D" parent="."]
 
-[node name="ElfTower" parent="." instance=ExtResource("5_bhyaa")]
-position = Vector2(575.044, 414.945)
+[node name="Towers" type="Node2D" parent="."]
 
-[node name="SnowmanTower" parent="." instance=ExtResource("5_xn4mg")]
-position = Vector2(687.417, 329.167)
+[node name="Path" type="Node2D" parent="."]
+visible = false
 
-[node name="ElfTower2" parent="." instance=ExtResource("5_bhyaa")]
-position = Vector2(612.876, 331.04)
+[node name="PathHitbox" type="Area2D" parent="Path"]
+collision_layer = 16
 
-[node name="SnowmanTower2" parent="." instance=ExtResource("5_xn4mg")]
-position = Vector2(583.284, 369.247)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path/PathHitbox"]
+polygon = PackedVector2Array(480.203, 313.903, 480.036, 333.926, 673.696, 334.228, 673.696, 366.084, 578.075, 365.97, 571.95, 373.432, 571.757, 426.964, 578.719, 433.537, 800.146, 434.299, 799.865, 413.954, 592.069, 414.095, 591.789, 385.752, 686.917, 386.314, 693.652, 378.597, 694.494, 318.264, 687.619, 313.213)
 
-[connection signal="Elfattack" from="ElfTower" to="." method="_on_elf_tower_elfattack"]
-[connection signal="snowmanAttack" from="SnowmanTower" to="." method="_on_snowman_tower_snowman_attack"]
+[node name="Santa" parent="." instance=ExtResource("6_3rcyo")]
+position = Vector2(628.91, 339.11)
+
+[node name="End" type="Node2D" parent="."]
+position = Vector2(792.399, 429.114)
+
+[node name="Sled" parent="End" instance=ExtResource("8_h6nh7")]
+
+[node name="MSled" parent="End" instance=ExtResource("8_ckyel")]
+position = Vector2(-304.291, -100.446)
+
+[node name="OpenPresents" type="Node2D" parent="."]
+
+[node name="UFO" type="Node2D" parent="."]
+position = Vector2(822, 270)
+
+[node name="UImage" type="Sprite2D" parent="UFO"]
+texture = ExtResource("7_v6cqn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UFO"]
+libraries = {
+"": SubResource("AnimationLibrary_2nrs8")
+}
+
+[node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="elfTowerClicked" from="UI" to="." method="_on_ui_elf_tower_clicked"]
+[connection signal="gnomeTowerClicked" from="UI" to="." method="_on_ui_gnome_tower_clicked"]
+[connection signal="shieldTowerClicked" from="UI" to="." method="_on_ui_shield_tower_clicked"]
+[connection signal="snowTowerClicked" from="UI" to="." method="_on_ui_snow_tower_clicked"]
+[connection signal="santaAttack" from="Santa" to="." method="_on_santa_santa_attack"]
+[connection signal="presentAdded" from="End/Sled" to="." method="_on_sled_present_added"]

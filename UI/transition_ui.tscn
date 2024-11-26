@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=3 uid="uid://685p5f4k8jyt"]
+
+[ext_resource type="Script" path="res://UI/TransitionUI.gd" id="1_efiyw"]
+[ext_resource type="PackedScene" uid="uid://btdf2eehxooux" path="res://UI/heart_i.tscn" id="2_barxe"]
+[ext_resource type="PackedScene" uid="uid://dqprystftsemb" path="res://UI/present.tscn" id="3_esldo"]
+
+[node name="TransitionUI" type="CanvasLayer"]
+script = ExtResource("1_efiyw")
+
+[node name="MiddleBottom" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.4
+anchor_top = 0.8
+anchor_right = 0.6
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Heart" type="PanelContainer" parent="MiddleBottom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeartHolder" type="HBoxContainer" parent="MiddleBottom/Heart"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="HeartI" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PresentHolder" type="HBoxContainer" parent="Control/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Present" parent="Control/PanelContainer/MarginContainer/PresentHolder" instance=ExtResource("3_esldo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Present2" parent="Control/PanelContainer/MarginContainer/PresentHolder" instance=ExtResource("3_esldo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Present3" parent="Control/PanelContainer/MarginContainer/PresentHolder" instance=ExtResource("3_esldo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Present4" parent="Control/PanelContainer/MarginContainer/PresentHolder" instance=ExtResource("3_esldo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Present5" parent="Control/PanelContainer/MarginContainer/PresentHolder" instance=ExtResource("3_esldo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="mouse_entered" from="Control/PanelContainer/MarginContainer/PresentHolder" to="." method="_on_present_holder_mouse_entered"]
+[connection signal="mouse_entered" from="Control/PanelContainer/MarginContainer/PresentHolder/Present" to="." method="_on_present_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PanelContainer/MarginContainer/PresentHolder/Present" to="." method="_on_present_mouse_exited"]
+[connection signal="mouse_entered" from="Control/PanelContainer/MarginContainer/PresentHolder/Present2" to="." method="_on_present_2_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PanelContainer/MarginContainer/PresentHolder/Present2" to="." method="_on_present_2_mouse_exited"]
+[connection signal="mouse_entered" from="Control/PanelContainer/MarginContainer/PresentHolder/Present3" to="." method="_on_present_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PanelContainer/MarginContainer/PresentHolder/Present3" to="." method="_on_present_3_mouse_exited"]
+[connection signal="mouse_entered" from="Control/PanelContainer/MarginContainer/PresentHolder/Present4" to="." method="_on_present_4_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PanelContainer/MarginContainer/PresentHolder/Present4" to="." method="_on_present_4_mouse_exited"]
+[connection signal="mouse_entered" from="Control/PanelContainer/MarginContainer/PresentHolder/Present5" to="." method="_on_present_5_mouse_entered"]
+[connection signal="mouse_exited" from="Control/PanelContainer/MarginContainer/PresentHolder/Present5" to="." method="_on_present_5_mouse_exited"]

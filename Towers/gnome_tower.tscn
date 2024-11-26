@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxq4weapq5epk"]
+
+[ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_2omk3"]
+[ext_resource type="Script" path="res://Scripts/gnome_tower.gd" id="2_bay8v"]
+[ext_resource type="Texture2D" uid="uid://kdhe0utvh8so" path="res://graphics/gnome.png" id="3_ypi31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etdg0"]
+size = Vector2(10.3236, 15.102)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ab1br"]
+radius = 25.0
+
+[node name="gnome_tower" groups=["gnome"] instance=ExtResource("1_2omk3")]
+script = ExtResource("2_bay8v")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.00403595, 0.0242529)
+shape = SubResource("RectangleShape2D_etdg0")
+
+[node name="TSprite" parent="." index="1"]
+texture = ExtResource("3_ypi31")
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+shape = SubResource("CircleShape2D_ab1br")
+
+[node name="AttackDelay" parent="." index="3"]
+wait_time = 2.0

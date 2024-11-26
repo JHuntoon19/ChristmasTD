@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqprystftsemb"]
+
+[ext_resource type="StyleBox" uid="uid://dynynvnmmeoxy" path="res://UI/backgroundpanel.tres" id="1_i7ibq"]
+[ext_resource type="Texture2D" uid="uid://d62lmut4vfn4" path="res://graphics/Present1.png" id="2_xmis4"]
+
+[node name="Present" type="PanelContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("1_i7ibq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PresentI" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_xmis4")
+stretch_mode = 5

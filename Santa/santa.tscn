@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdwe07gvvd781"]
+
+[ext_resource type="Script" path="res://Scripts/santa.gd" id="1_m3ua7"]
+[ext_resource type="Texture2D" uid="uid://chdt1nycapnb" path="res://graphics/Santa.png" id="2_utfor"]
+[ext_resource type="Texture2D" uid="uid://dy28488ujas66" path="res://graphics/dottedcircle.PNG" id="3_fruxr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qervp"]
+size = Vector2(10.0649, 15.0311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtetq"]
+size = Vector2(10.0649, 15.1636)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rc8ig"]
+radius = 20.0
+
+[node name="Santa" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 10
+script = ExtResource("1_m3ua7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_utfor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.100992, 0.0382943)
+shape = SubResource("RectangleShape2D_qervp")
+
+[node name="Detect" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+position = Vector2(0.0899029, -0.0266047)
+shape = SubResource("RectangleShape2D_jtetq")
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_rc8ig")
+
+[node name="Sprite2D" type="Sprite2D" parent="Range"]
+texture = ExtResource("3_fruxr")
+
+[node name="Attackdelay" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="area_entered" from="Detect" to="." method="_on_detect_area_entered"]
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]
+[connection signal="timeout" from="Attackdelay" to="." method="_on_attackdelay_timeout"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://byn830iusf4h1"]
+
+[ext_resource type="PackedScene" uid="uid://bvfvdb12y7ddy" path="res://UI/tower_dummy.tscn" id="1_gr38m"]
+[ext_resource type="Script" path="res://Scripts/snow_dummy.gd" id="2_3f1e2"]
+[ext_resource type="Texture2D" uid="uid://dgycdikpbg5gx" path="res://graphics/Snowman1.png" id="3_0qnbc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lt2wq"]
+radius = 20.0
+
+[node name="SnowDummy" instance=ExtResource("1_gr38m")]
+script = ExtResource("2_3f1e2")
+
+[node name="Image" parent="." index="1"]
+texture = ExtResource("3_0qnbc")
+
+[node name="CollisionShape2D" parent="range" index="0"]
+shape = SubResource("CircleShape2D_lt2wq")

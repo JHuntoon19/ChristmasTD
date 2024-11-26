@@ -1,6 +1,6 @@
 extends "res://Scripts/tower.gd"
-signal Elfattack(tower : Area2D, enemy : Area2D)
+signal Elfattack(tower : Vector2, enemy : Vector2)
 #Overwrites the default attack function and emits signal to level
 func attack() -> void:
 #	Give level info on the position of tower and the targeted enemy
-	Elfattack.emit(self,enems[0])
+	Elfattack.emit(position,enems[0].get_parent().position)

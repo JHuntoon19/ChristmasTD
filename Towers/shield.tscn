@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bior2r3yjwk45"]
+
+[ext_resource type="Texture2D" uid="uid://draav4b4tw8h3" path="res://graphics/shield.png" id="1_i8ymm"]
+[ext_resource type="Script" path="res://Scripts/shield.gd" id="1_ksbgc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gdl20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2ah"]
+size = Vector2(12.1507, 17.0064)
+
+[node name="Shield" type="StaticBody2D"]
+collision_layer = 128
+collision_mask = 121
+physics_material_override = SubResource("PhysicsMaterial_gdl20")
+script = ExtResource("1_ksbgc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0390539, -0.00319815)
+shape = SubResource("RectangleShape2D_tp2ah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i8ymm")
+
+[node name="Detect" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 25
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Detect"]
+position = Vector2(-0.0390539, -0.00319815)
+shape = SubResource("RectangleShape2D_tp2ah")
+
+[connection signal="area_entered" from="Detect" to="." method="_on_detect_area_entered"]

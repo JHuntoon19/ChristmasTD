@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://h6i1u5ijulki"]
+
+[ext_resource type="PackedScene" uid="uid://cqx788f7m1dki" path="res://Enemy/Enemy.tscn" id="1_xi3n6"]
+[ext_resource type="Script" path="res://Scripts/monster.gd" id="2_ojxdp"]
+[ext_resource type="Texture2D" uid="uid://dbnr7upgq756x" path="res://graphics/monster.png" id="2_rhm4i"]
+
+[node name="Monster" instance=ExtResource("1_xi3n6")]
+script = ExtResource("2_ojxdp")
+
+[node name="EImage" parent="Hitbox" index="0"]
+texture = ExtResource("2_rhm4i")

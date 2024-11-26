@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhhtkrydgdcn3"]
+
+[ext_resource type="Texture2D" uid="uid://gm66f1ntcsw6" path="res://graphics/monsterSled.png" id="1_t76vj"]
+
+[node name="MSled" type="Sprite2D"]
+texture = ExtResource("1_t76vj")
+
+[node name="PresentHolder1" type="Node2D" parent="."]
+position = Vector2(-3.65751, -1.71077)
+
+[node name="PresentHolder2" type="Node2D" parent="."]
+position = Vector2(1.00286, -4.83735)
+
+[node name="PresentHolder3" type="Node2D" parent="."]
+position = Vector2(-1.65178, -3.59852)
+
+[node name="PresentHolder4" type="Node2D" parent="."]
+position = Vector2(-5.07333, -6.07619)
+
+[node name="PresentHolder5" type="Node2D" parent="."]
+position = Vector2(4.60138, -4.66038)
