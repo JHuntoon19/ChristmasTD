@@ -8,6 +8,8 @@
 
 [node name="ShieldDummy" instance=ExtResource("1_o0r58")]
 script = ExtResource("2_l3qgd")
+towerName = "shield"
+cost = 15
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("2_ascdo")

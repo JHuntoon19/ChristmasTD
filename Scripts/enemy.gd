@@ -1,6 +1,7 @@
 extends PathFollow2D
-var speed : float = 0.05
-var health : int = 10
+class_name Enemy
+@export var speed : float = 0.05
+@export var health : int = 10
 var forward : bool = true
 var presentHolder : bool = false
 signal dead(enemy : PathFollow2D, holder : bool)

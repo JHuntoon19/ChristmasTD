@@ -6,6 +6,8 @@
 
 [node name="gnome_dummy" instance=ExtResource("1_dxrg6")]
 script = ExtResource("2_kj66a")
+towerName = "gnome"
+cost = 45
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("3_euol3")

@@ -1,4 +1,5 @@
 extends Area2D
+class_name Tower
 @onready var attack_delay : Timer = $AttackDelay
 #Enems is an array that holds all the enemies within range
 var enems : Array[Area2D] = []

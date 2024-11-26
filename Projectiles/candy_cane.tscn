@@ -4,9 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5f3bah3htew2" path="res://Projectiles/projectile.tscn" id="1_jxueg"]
 
 [sub_resource type="GDScript" id="GDScript_4m5ux"]
-script/source = "extends \"res://Scripts/projectile.gd\"
-func _ready():
-	speed = 50
+script/source = "extends Projectile
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kxjl"]

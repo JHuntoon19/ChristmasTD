@@ -6,6 +6,8 @@
 
 [node name="elfDummy" instance=ExtResource("1_uu726")]
 script = ExtResource("2_5n0vo")
+towerName = "elf"
+cost = 30
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("3_0da4n")

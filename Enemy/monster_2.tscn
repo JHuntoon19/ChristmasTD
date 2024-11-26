@@ -6,6 +6,8 @@
 
 [node name="monster2" instance=ExtResource("1_lipni")]
 script = ExtResource("2_1yoht")
+speed = 0.07
+health = 5
 
 [node name="EImage" parent="Hitbox" index="0"]
 texture = ExtResource("3_8gt64")

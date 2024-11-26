@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Santa
 var inputD : Vector2 = Vector2.ZERO
 var speed : int = 50
 var enems : Array[Area2D] = []

@@ -1,4 +1,4 @@
-extends "res://Scripts/tower.gd"
+extends Tower
 signal Elfattack(tower : Vector2, enemy : Vector2)
 #Overwrites the default attack function and emits signal to level
 func attack() -> void:

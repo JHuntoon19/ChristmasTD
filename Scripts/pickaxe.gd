@@ -1,6 +1,4 @@
-extends "res://Scripts/projectile.gd"
-func _ready() -> void:
-	speed = 20
+extends Projectile
 #Every frame moves the projectile in the correct direction
 func _process(delta) -> void:
 	position += direction * speed * delta

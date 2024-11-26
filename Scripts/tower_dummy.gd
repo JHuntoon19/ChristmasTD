@@ -1,13 +1,14 @@
 extends Node2D
 #This is a bass class that the dummy towers will be based off of
+class_name TowerDummy
 #Use setup for the specific tower variables
 signal placeTower(position : Vector2, towerName : String)
-var towerName : String
+@export var towerName : String
 var placeable : bool = true
 var areas : Array[int] = []
 var circColor : Color = Color("6a6a6a84")
 var unColor : Color = Color("d83842a3")
-var cost : int = 0
+@export var cost : int = 0
 #Makes the range circle the correct size
 func _ready():
 	$RangeCircle.scale = Vector2($range/CollisionShape2D.shape.radius / 731, $range/CollisionShape2D.shape.radius / 739) * 2

@@ -1,4 +1,4 @@
-extends "res://Scripts/tower.gd"
+extends Tower
 signal gnomeAttack(tower : Vector2, enemy : Vector2)
 #Overwrites default attack method
 func attack() -> void:

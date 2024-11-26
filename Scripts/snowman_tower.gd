@@ -1,4 +1,4 @@
-extends "res://Scripts/tower.gd"
+extends Tower
 signal snowmanAttack(tower : Area2D, projNum : Area2D)
 #Overwrites default attack method
 func attack() -> void:

@@ -9,6 +9,7 @@ size = Vector2(10.2941, 4.9798)
 
 [node name="Carrot" instance=ExtResource("1_kioxt")]
 script = ExtResource("1_xqf6k")
+speed = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.0634069, -0.0303969)

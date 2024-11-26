@@ -1,5 +1,6 @@
 extends Area2D
-var speed : int = 50
+class_name Projectile
+@export var speed : int = 50
 var direction : Vector2
 #Every frame moves the projectile in the correct direction
 func _process(delta) -> void:

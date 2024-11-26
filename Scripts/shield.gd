@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Shield
 #Shield is not a base tower because it has no need to track enemies and attack
 #How many hits the shield can take
 var health : int = 10

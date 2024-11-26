@@ -1,4 +1,5 @@
 extends Area2D
+class_name Present
 #Keeps is so that only the area that touches it first will have the present added
 var touched : bool = false
 #When it touches another area it checks that it is not already holding a present
