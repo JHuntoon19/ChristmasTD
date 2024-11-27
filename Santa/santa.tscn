@@ -22,10 +22,12 @@ script = ExtResource("1_m3ua7")
 texture = ExtResource("2_utfor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.100992, 0.0382943)
 shape = SubResource("RectangleShape2D_qervp")
 
 [node name="Detect" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 10
 

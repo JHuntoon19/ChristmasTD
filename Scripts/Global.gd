@@ -20,3 +20,8 @@ var santaHeart : int = 4:
 	set(value):
 		santaHeart = max(value, 0)
 		heartUpdate.emit(santaHeart)
+var elfLevel : int = 0
+var snowLevel : int = 0
+var gnomeLevel : int = 0
+var shieldLevel : int = 0
+var santaLevel : int = 0

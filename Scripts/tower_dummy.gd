@@ -9,10 +9,12 @@ var areas : Array[int] = []
 var circColor : Color = Color("6a6a6a84")
 var unColor : Color = Color("d83842a3")
 @export var cost : int = 0
+@export var tower : PackedScene
 #Makes the range circle the correct size
 func _ready():
-	$RangeCircle.scale = Vector2($range/CollisionShape2D.shape.radius / 731, $range/CollisionShape2D.shape.radius / 739) * 2
+	upgrade()
 	setup()
+	$RangeCircle.scale = Vector2($range/CollisionShape2D.shape.radius / 731, $range/CollisionShape2D.shape.radius / 739) * 2
 func _process(delta):
 	#Makes dummy follow mouse
 	position = get_global_mouse_position()
@@ -36,10 +38,15 @@ func _process(delta):
 #Use this when creating tower specific dummys
 func setup() -> void:
 	#Change the tower name and the cost
-	pass
+	var towerRange = tower.instantiate()
+	add_child(towerRange)
+	$range/CollisionShape2D.shape.radius = towerRange.range
+	towerRange.queue_free()
 
 #Ensures that the dummy is not overlapping anything so that it can be placed
 func _on_hitbox_area_entered(area):
 	areas.append(1)
 func _on_hitbox_area_exited(area):
 	areas.remove_at(areas.size() - 1)
+func upgrade():
+	pass

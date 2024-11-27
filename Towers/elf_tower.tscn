@@ -12,6 +12,7 @@ radius = 40.0
 
 [node name="ElfTower" groups=["Elf"] instance=ExtResource("1_elj1d")]
 script = ExtResource("2_x2r7x")
+attackSpeed = 0.3
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.0524902, -0.0190663)
@@ -24,5 +25,6 @@ texture = ExtResource("2_brq63")
 shape = SubResource("CircleShape2D_etfu6")
 
 [node name="AttackDelay" parent="." index="3"]
+unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true

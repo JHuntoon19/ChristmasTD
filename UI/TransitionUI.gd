@@ -1,6 +1,7 @@
 extends CanvasLayer
+var presentsSaved : int
 func _ready() -> void:
-	var presentsSaved : int = 5 - Global.monsterPresentNum
+	presentsSaved = 5 - Global.monsterPresentNum
 	updatePresents(presentsSaved)
 	#Removes all heart children that will be later be added to the correct amount
 	for n in %HeartHolder.get_children():
@@ -14,9 +15,16 @@ func updatePresents(presentNum : int) -> void:
 #Emited from Global
 #Displays the correct amount of hearts to the player
 func updateHeart(heartNum : int) -> void:
-	for heart in heartNum:
-		var heartScene = preload("res://UI/heart_i.tscn").instantiate()
-		%HeartHolder.call_deferred("add_child", heartScene)
+	#Gets the amount of hearts currently displayed
+	var currentHeart = %HeartHolder.get_child_count()
+	#Constantly adds hearts until the amount is met
+	while(currentHeart < heartNum):
+		%HeartHolder.call_deferred("add_child", preload("res://UI/heart_i.tscn").instantiate())
+		currentHeart += 1
+	#Constantyl removes hearts until the amount is met
+	while(currentHeart > heartNum):
+		%HeartHolder.get_child(- 1).queue_free()
+		currentHeart -= 1
 
 
 func _on_present_mouse_entered() -> void:
@@ -53,3 +61,38 @@ func hovered(background : PanelContainer) -> void:
 		background.self_modulate = Color("ff82ff")
 func unHovered(background : PanelContainer) -> void:
 	background.self_modulate = Color.WHITE
+
+
+func onePButtonPressed() -> void:
+	presentPressed(%Present)
+
+func twoPButtonPressed() -> void:
+	presentPressed(%Present2)
+
+func threePButtonPressed() -> void:
+	presentPressed(%Present3)
+
+func fourPButtonPressed() -> void:
+	presentPressed(%Present4)
+
+func fivePButtonPressed() -> void:
+	presentPressed(%Present5)
+#Called when a present is clicked
+func presentPressed(present : PanelContainer) -> void:
+	presentsSaved -= 1
+	#Gets a random upgrade
+	upgrade()
+	present.visible = false
+	#Hides the panel if all presents are gone
+	if(presentsSaved == 0):
+		$Middle/PanelContainer.visible = false 
+#Gets a random upgrade
+func upgrade() -> void:
+	#If an error occurs then we recall the upgrade to get a real upgrade
+	var valuable : bool = false
+	while(!valuable):
+		var upText : String = Upgrades.upgrade()
+		if(upText != "Error"):
+			valuable = true
+			%upgradeText.text = upText
+	

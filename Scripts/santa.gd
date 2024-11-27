@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	#Sets the velocity of santa
 	getInput()
 	#If space is pushed and enemies are in range and the timer has gone off we can attack
-	if(Input.is_action_just_pressed("attack") and !enems.is_empty() and canAttack):
+	if(Input.is_action_pressed("attack") and !enems.is_empty() and canAttack):
 		#Start timer
 		canAttack = false
 		attackdelay.start()

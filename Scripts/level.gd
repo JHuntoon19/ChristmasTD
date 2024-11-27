@@ -65,17 +65,18 @@ func ended(enemy : Enemy) -> void:
 		Global.presentNum -= 1
 #When elf wants to attack
 #The tower and enemy are their positions
-func elfTowerAttack(tower : Vector2, enemy : Vector2) -> void:
-#	Instantiates a candy cane and gives it the correct position and direction
+func elfTowerAttack(tower : Vector2, enemy : Vector2, projSpeed : int) -> void:
+#	Instantiates a candy cane and gives it the correct position directio and speed
 	var CC : Projectile = CCScene.instantiate()
 	var direction : Vector2 = Vector2 (enemy - tower).normalized()
 	CC.position = tower
 	CC.direction = direction
 	CC.rotation = direction.angle()
+	CC.speed *= projSpeed
 	projectiles.call_deferred("add_child",CC)
 
 #When the snowman wants to attack
-func snowmanAttack(tower : Tower, projNum : int) -> void:
+func snowmanAttack(tower : Tower, projNum : int, projSpeed : int) -> void:
 #	Ang splits up a circle into even parts
 	var ang : float = 2 * PI / (projNum)
 #	Repeats for the given amount of times
@@ -86,9 +87,11 @@ func snowmanAttack(tower : Tower, projNum : int) -> void:
 		var rotationAngle : float = ang * n
 #		Trig to find the x and y values of the carrot's direction
 		var direction : Vector2 = Vector2 (cos(rotationAngle), sin(rotationAngle))
+		#Sets carrot on right path with right speed
 		Ca.rotation = rotationAngle
 		Ca.direction = direction
 		Ca.position = tower.position
+		Ca.speed *= projSpeed
 		projectiles.call_deferred("add_child", Ca)
 func gnomeAttack(position : Vector2, enemy : Vector2):
 	#	Instantiates a pckaxe and gives it the correct position and direction

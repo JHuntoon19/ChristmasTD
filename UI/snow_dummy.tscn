@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://byn830iusf4h1"]
+[gd_scene load_steps=6 format=3 uid="uid://byn830iusf4h1"]
 
 [ext_resource type="PackedScene" uid="uid://bvfvdb12y7ddy" path="res://UI/tower_dummy.tscn" id="1_gr38m"]
 [ext_resource type="Script" path="res://Scripts/snow_dummy.gd" id="2_3f1e2"]
 [ext_resource type="Texture2D" uid="uid://dgycdikpbg5gx" path="res://graphics/Snowman1.png" id="3_0qnbc"]
+[ext_resource type="PackedScene" uid="uid://bcx2gln2q22h" path="res://Towers/snowman_tower.tscn" id="3_jv2al"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lt2wq"]
 radius = 20.0
@@ -11,6 +12,7 @@ radius = 20.0
 script = ExtResource("2_3f1e2")
 towerName = "snow"
 cost = 45
+tower = ExtResource("3_jv2al")
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("3_0qnbc")
