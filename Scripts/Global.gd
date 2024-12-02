@@ -20,8 +20,13 @@ var santaHeart : int = 4:
 	set(value):
 		santaHeart = max(value, 0)
 		heartUpdate.emit(santaHeart)
+enum TowerType{ELF,SNOW,GNOME,SHIELD}
 var elfLevel : int = 0
+var elfCost : int = 30
 var snowLevel : int = 0
+var snowCost : int = 45
 var gnomeLevel : int = 0
+var gnomeCost : int = 45
 var shieldLevel : int = 0
+var shieldCost : int = 15
 var santaLevel : int = 0

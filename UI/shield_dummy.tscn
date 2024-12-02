@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://chnq5ciq5einx"]
+[gd_scene load_steps=6 format=3 uid="uid://chnq5ciq5einx"]
 
 [ext_resource type="PackedScene" uid="uid://bvfvdb12y7ddy" path="res://UI/tower_dummy.tscn" id="1_o0r58"]
 [ext_resource type="Texture2D" uid="uid://draav4b4tw8h3" path="res://graphics/shield.png" id="2_ascdo"]
 [ext_resource type="Script" path="res://Scripts/shield_dummy.gd" id="2_l3qgd"]
+[ext_resource type="PackedScene" uid="uid://cvmfwtjqibkmd" path="res://Towers/shield.tscn" id="3_ohyua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gy6el"]
 
 [node name="ShieldDummy" instance=ExtResource("1_o0r58")]
 script = ExtResource("2_l3qgd")
-towerName = "shield"
+type = 3
 cost = 15
+tower = ExtResource("3_ohyua")
 
 [node name="Image" parent="." index="1"]
 texture = ExtResource("2_ascdo")

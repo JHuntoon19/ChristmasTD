@@ -3,7 +3,7 @@ extends Node2D
 class_name TowerDummy
 #Use setup for the specific tower variables
 signal placeTower(position : Vector2, towerName : String)
-@export var towerName : String
+@export var type: Global.TowerType
 var placeable : bool = true
 var areas : Array[int] = []
 var circColor : Color = Color("6a6a6a84")
@@ -25,7 +25,7 @@ func _process(delta):
 		$RangeCircle.self_modulate = circColor
 		if(Input.is_action_just_pressed("click")):
 			#User wants to place tower so this emits to the level the position and the tower to place
-			placeTower.emit(position, towerName)
+			placeTower.emit(position, type)
 			#Subtracts the cost and removes teh dummy
 			Global.money -= cost
 			queue_free()
@@ -40,6 +40,17 @@ func setup() -> void:
 	#Change the tower name and the cost
 	var towerClass : Tower = tower.instantiate()
 	$range/CollisionShape2D.shape.radius = towerClass.towerRange
+	match towerClass.type:
+		Global.TowerType.ELF:
+			cost = Global.elfCost
+		Global.TowerType.SNOW:
+			cost = Global.snowCost
+		Global.TowerType.GNOME:
+			cost = Global.gnomeCost
+		Global.TowerType.SHIELD:
+			#Only thing different about the shield is that the size changes
+			cost = Global.shieldCost
+			scale = Vector2(towerClass.size, towerClass.size)
 	towerClass.queue_free()
 
 #Ensures that the dummy is not overlapping anything so that it can be placed

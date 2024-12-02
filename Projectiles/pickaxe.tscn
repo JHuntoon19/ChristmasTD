@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://uyjut8mtd0ab" path="res://graphics/pickaxe.png" id="3_tfmqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xe6r"]
-size = Vector2(9.91125, 6.19538)
+size = Vector2(9.91125, 4.62697)
 
 [node name="Pickaxe" instance=ExtResource("1_v8e65")]
 collision_mask = 128
@@ -13,7 +13,7 @@ script = ExtResource("2_blblr")
 speed = 20
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0.156086, -4.22269)
+position = Vector2(0.156086, -5.00689)
 shape = SubResource("RectangleShape2D_3xe6r")
 
 [node name="Sprite2D" parent="." index="1"]

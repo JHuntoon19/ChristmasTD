@@ -18,24 +18,28 @@ func upgrade() -> String:
 	if(type.match("ElfTower")):
 		if(Global.elfLevel < 3):
 			Global.elfLevel += 1
+			Global.elfCost -= 3
 			return "Elf Tower Level Increased"
 		else:
 			upgradeType.erase("ElfTower")
 	if(type.match("SnowmanTower")):
 		if(Global.snowLevel < 3):
 			Global.snowLevel += 1
+			Global.snowCost -= 3
 			return "Snowman Tower Level Increased"
 		else:
 			upgradeType.erase("SnowmanTower")
 	if(type.match("GnomeTower")):
 		if(Global.gnomeLevel < 3):
 			Global.gnomeLevel += 1
+			Global.gnomeCost -= 3
 			return "Gnome Tower Level Increased"
 		else:
 			upgradeType.erase("GnomeTower")
 	if(type.match("Shield")):
 		if(Global.shieldLevel < 3):
 			Global.shieldLevel += 1
+			Global.shieldCost -= 3
 			return "Shield Tower Level Increased"
 		else:
 			upgradeType.erase("Shield")

@@ -12,6 +12,7 @@ radius = 25.0
 
 [node name="gnome_tower" groups=["gnome"] instance=ExtResource("1_2omk3")]
 script = ExtResource("2_bay8v")
+type = 2
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0.00403595, 0.0242529)

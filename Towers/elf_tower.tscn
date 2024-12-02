@@ -24,6 +24,5 @@ texture = ExtResource("2_brq63")
 shape = SubResource("CircleShape2D_etfu6")
 
 [node name="AttackDelay" parent="." index="3"]
-unique_name_in_owner = true
 wait_time = 0.3
 one_shot = true

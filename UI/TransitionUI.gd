@@ -1,7 +1,11 @@
 extends CanvasLayer
 var presentsSaved : int
 func _ready() -> void:
+	#Stores amount of saved presents
 	presentsSaved = 5 - Global.monsterPresentNum
+	#Hides the next level button
+	$Middle/ExitButton.visible = false
+	#Displays correct amount of presents
 	updatePresents(presentsSaved)
 	#Removes all heart children that will be later be added to the correct amount
 	for n in %HeartHolder.get_children():
@@ -10,6 +14,9 @@ func _ready() -> void:
 	Global.connect("heartUpdate", updateHeart)
 	Global.heartUpdate.emit(Global.santaHeart)
 func updatePresents(presentNum : int) -> void:
+	#hides all presents before going through and showing the correct amount
+	for present in %PresentHolder.get_child_count():
+		%PresentHolder.get_child(present).visible = false
 	for present in presentNum:
 		%PresentHolder.get_child(present).visible = true
 #Emited from Global
@@ -86,6 +93,8 @@ func presentPressed(present : PanelContainer) -> void:
 	#Hides the panel if all presents are gone
 	if(presentsSaved == 0):
 		$Middle/PanelContainer.visible = false 
+		#Shows next level button
+		$Middle/ExitButton.visible = true
 #Gets a random upgrade
 func upgrade() -> void:
 	#If an error occurs then we recall the upgrade to get a real upgrade
@@ -96,3 +105,7 @@ func upgrade() -> void:
 			valuable = true
 			%upgradeText.text = upText
 	
+
+#Returns to the default level when pressed
+func _on_next_level_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Levels/level.tscn")

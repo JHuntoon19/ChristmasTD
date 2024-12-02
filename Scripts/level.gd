@@ -18,7 +18,6 @@ func _ready():
 	#Sets basic default global values
 	Global.money += 45
 	Global.santaHeart = 4
-	Global.snowLevel = 2
 	startLevel()
 func startLevel() -> void:
 	$UFO/AnimationPlayer.play("StartLevel")
@@ -94,12 +93,14 @@ func snowmanAttack(tower : Tower, projNum : int, projSpeed : int) -> void:
 		Ca.position = tower.position
 		Ca.speed *= projSpeed
 		projectiles.call_deferred("add_child", Ca)
-func gnomeAttack(position : Vector2, enemy : Vector2):
+func gnomeAttack(position : Vector2, enemy : Vector2, rotateSpeed : float, size : float):
 	#	Instantiates a pckaxe and gives it the correct position and direction
-	var PA : Projectile = preload("res://Projectiles/pickaxe.tscn").instantiate()
+	var PA : PickAxe = preload("res://Projectiles/pickaxe.tscn").instantiate()
 	var direction : Vector2 = Vector2 (enemy - position).normalized()
 	PA.position = position
 	PA.direction = direction
+	PA.rotateSpeed = rotateSpeed
+	PA.scale = Vector2(size,size)
 	projectiles.call_deferred("add_child",PA)
 #removes enemy and updates the money
 func deadEnemy(enemy : Enemy, presentHolder : bool):
@@ -124,27 +125,27 @@ func _on_ui_elf_tower_clicked():
 	call_deferred("add_child", elfDummy)
 	elfDummy.connect("placeTower", placeTower)
 #Places a new tower in place of a dummy
-func placeTower(position : Vector2, towerName : String) -> void :
+func placeTower(position : Vector2, type : int) -> void :
 	#Creates a elf tower
-	if(towerName == "elf"):
+	if(type == Global.TowerType.ELF):
 		var elfTower : Tower = preload("res://Towers/elf_tower.tscn").instantiate()
 		elfTower.position = position
 		$Towers.call_deferred("add_child",elfTower)
 		elfTower.connect("Elfattack",elfTowerAttack)
 	#Creates a snowman tower
-	elif(towerName == "snow"):
+	elif(type == Global.TowerType.SNOW):
 		var snowTower : Tower = preload("res://Towers/snowman_tower.tscn").instantiate()
 		snowTower.position = position
 		$Towers.call_deferred("add_child",snowTower)
 		snowTower.connect("snowmanAttack",snowmanAttack)
 	#Creates a gnome tower
-	elif(towerName == "gnome"):
+	elif(type == Global.TowerType.GNOME):
 		var gnomeTower : Tower = preload("res://Towers/gnome_tower.tscn").instantiate()
 		gnomeTower.position = position
 		$Towers.call_deferred("add_child",gnomeTower)
 		gnomeTower.connect("gnomeAttack", gnomeAttack)
 	#Creates the shield tower
-	elif(towerName == "shield"):
+	elif(type == Global.TowerType.SHIELD):
 		var shieldTower : Shield = preload("res://Towers/shield.tscn").instantiate()
 		shieldTower.position = position
 		$Towers.call_deferred("add_child",shieldTower)

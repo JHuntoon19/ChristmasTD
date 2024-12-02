@@ -12,6 +12,8 @@ var towerRange : int
 #Shows how fast the tower will attack
 #Automatically changes the timer when updated
 var attackSpeed : float
+#type of tower set in inspectore of each tower
+@export var type: Global.TowerType
 #Sets up variable values on instantiation
 func _init() -> void:
 	upgrade()

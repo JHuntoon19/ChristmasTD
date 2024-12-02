@@ -8,6 +8,11 @@ signal shieldTowerClicked()
 func _ready():
 	$SideVisible.visible = false
 	$SideHidden.visible = true
+	#Set costs of towers
+	%ElfCostLabel.text = str(Global.elfCost)
+	%SnowCostLabel.text = str(Global.snowCost)
+	%ShieldCostLabel.text = str(Global.shieldCost)
+	%GnomeCostLabel.text = str(Global.gnomeCost)
 	#Connects the global signals
 	Global.connect("moneyChanged",updateMoneyText)
 	Global.connect("heartUpdate", updateHearts)

@@ -7,7 +7,6 @@
 
 [node name="elfDummy" instance=ExtResource("1_uu726")]
 script = ExtResource("2_5n0vo")
-towerName = "elf"
 cost = 30
 tower = ExtResource("3_j1vb8")
 

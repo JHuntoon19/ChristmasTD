@@ -10,7 +10,7 @@ radius = 20.0
 
 [node name="SnowDummy" instance=ExtResource("1_gr38m")]
 script = ExtResource("2_3f1e2")
-towerName = "snow"
+type = 1
 cost = 45
 tower = ExtResource("3_jv2al")
 
