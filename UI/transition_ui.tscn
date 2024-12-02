@@ -56,6 +56,24 @@ alignment = 1
 [node name="HeartI" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
 layout_mode = 2
 
+[node name="HeartI2" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
+layout_mode = 2
+
+[node name="HeartI3" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
+layout_mode = 2
+
+[node name="HeartI4" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
+layout_mode = 2
+
+[node name="HeartI5" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
+layout_mode = 2
+
+[node name="HeartI6" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
+layout_mode = 2
+
+[node name="HeartI7" parent="MiddleBottom/Heart/HeartHolder" instance=ExtResource("2_barxe")]
+layout_mode = 2
+
 [node name="Middle" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8

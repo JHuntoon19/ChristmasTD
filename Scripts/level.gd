@@ -17,7 +17,7 @@ var monsterCount : int = 5
 func _ready():
 	#Sets basic default global values
 	Global.money += 45
-	Global.santaHeart = 4
+	Global.heartUpdate.emit(Global.santaHeart)
 	startLevel()
 func startLevel() -> void:
 	$UFO/AnimationPlayer.play("StartLevel")

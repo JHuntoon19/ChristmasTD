@@ -7,9 +7,6 @@ func _ready() -> void:
 	$Middle/ExitButton.visible = false
 	#Displays correct amount of presents
 	updatePresents(presentsSaved)
-	#Removes all heart children that will be later be added to the correct amount
-	for n in %HeartHolder.get_children():
-		n.queue_free()
 	#Connects the hearupdate signal and emits that to display the players heart count
 	Global.connect("heartUpdate", updateHeart)
 	Global.heartUpdate.emit(Global.santaHeart)
@@ -25,12 +22,13 @@ func updateHeart(heartNum : int) -> void:
 	#Gets the amount of hearts currently displayed
 	var currentHeart = %HeartHolder.get_child_count()
 	#Constantly adds hearts until the amount is met
-	while(currentHeart < heartNum):
+	print(str(heartNum) + str(currentHeart))
+	while(currentHeart <= heartNum):
 		%HeartHolder.call_deferred("add_child", preload("res://UI/heart_i.tscn").instantiate())
 		currentHeart += 1
 	#Constantyl removes hearts until the amount is met
 	while(currentHeart > heartNum):
-		%HeartHolder.get_child(- 1).queue_free()
+		%HeartHolder.get_child(0).free()
 		currentHeart -= 1
 
 

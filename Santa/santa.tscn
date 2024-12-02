@@ -27,7 +27,6 @@ position = Vector2(0.100992, 0.0382943)
 shape = SubResource("RectangleShape2D_qervp")
 
 [node name="Detect" type="Area2D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 10
 
@@ -48,7 +47,12 @@ texture = ExtResource("3_fruxr")
 [node name="Attackdelay" type="Timer" parent="."]
 wait_time = 0.25
 
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="Detect" to="." method="_on_detect_area_entered"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]
 [connection signal="timeout" from="Attackdelay" to="." method="_on_attackdelay_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
