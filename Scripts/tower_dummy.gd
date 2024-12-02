@@ -38,10 +38,9 @@ func _process(delta):
 #Use this when creating tower specific dummys
 func setup() -> void:
 	#Change the tower name and the cost
-	var towerRange = tower.instantiate()
-	add_child(towerRange)
-	$range/CollisionShape2D.shape.radius = towerRange.range
-	towerRange.queue_free()
+	var towerClass : Tower = tower.instantiate()
+	$range/CollisionShape2D.shape.radius = towerClass.towerRange
+	towerClass.queue_free()
 
 #Ensures that the dummy is not overlapping anything so that it can be placed
 func _on_hitbox_area_entered(area):

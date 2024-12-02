@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/tower.gd" id="1_21lq5"]
 
-[node name="Tower" type="Area2D" node_paths=PackedStringArray("attack_delay") groups=["Tower"]]
+[node name="Tower" type="Area2D" groups=["Tower"]]
 script = ExtResource("1_21lq5")
-attack_delay = NodePath("AttackDelay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -17,6 +16,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 
 [node name="AttackDelay" type="Timer" parent="."]
+unique_name_in_owner = true
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

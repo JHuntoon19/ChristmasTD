@@ -12,7 +12,6 @@ radius = 40.0
 
 [node name="ElfTower" groups=["Elf"] instance=ExtResource("1_elj1d")]
 script = ExtResource("2_x2r7x")
-attackSpeed = 0.3
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.0524902, -0.0190663)

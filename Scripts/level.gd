@@ -18,6 +18,7 @@ func _ready():
 	#Sets basic default global values
 	Global.money += 45
 	Global.santaHeart = 4
+	Global.snowLevel = 2
 	startLevel()
 func startLevel() -> void:
 	$UFO/AnimationPlayer.play("StartLevel")

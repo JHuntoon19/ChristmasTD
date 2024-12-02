@@ -11,6 +11,11 @@ func upgrade():
 	#Loops through and applies level upgrades for all levels
 	for level in range(Global.snowLevel + 1):
 		match level:
+			0:
+				attackSpeed = 1
+				towerRange = 20
+				projSpeed = 1
+				projAmount
 			1:
 				#Increases carrot shot and attack speed
 				projAmount += 2
@@ -18,8 +23,7 @@ func upgrade():
 			2:
 				#Increases range, carrot amount and speed of the carrot
 				projAmount += 2
-				range = 40
-				$Range/CollisionShape2D.shape.radius = range
+				towerRange = 40
 				projSpeed = 1.5
 			3:
 				#Increases carrot amount, attack speed, and the speed of the carrot
