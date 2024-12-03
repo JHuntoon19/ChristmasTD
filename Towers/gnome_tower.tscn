@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_2omk3"]
 [ext_resource type="Script" path="res://Scripts/gnome_tower.gd" id="2_bay8v"]
-[ext_resource type="Texture2D" uid="uid://kdhe0utvh8so" path="res://graphics/gnome.png" id="3_ypi31"]
+[ext_resource type="Texture2D" uid="uid://btu8d2xarknly" path="res://graphics/gnome.png" id="3_ypi31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etdg0"]
 size = Vector2(10.3236, 15.102)

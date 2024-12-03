@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqx788f7m1dki" path="res://Enemy/Enemy.tscn" id="1_lipni"]
 [ext_resource type="Script" path="res://Scripts/monster_2.gd" id="2_1yoht"]
-[ext_resource type="Texture2D" uid="uid://bjckpov8ouh33" path="res://graphics/monster2.png" id="3_8gt64"]
+[ext_resource type="Texture2D" uid="uid://dhwigfr68yyej" path="res://graphics/monster2.png" id="3_8gt64"]
 
 [node name="monster2" instance=ExtResource("1_lipni")]
 script = ExtResource("2_1yoht")

@@ -115,7 +115,6 @@ func deadEnemy(enemy : Enemy, presentHolder : bool):
 	enemy.queue_free()
 	Global.money += 15
 	if(monsterCount == 0):
-		print(Global.santaHeart)
 		get_tree().change_scene_to_file("res://Levels/transition.tscn")
 
 #Creates a dummy elf tower to follow the mouse

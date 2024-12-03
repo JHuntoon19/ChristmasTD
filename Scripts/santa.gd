@@ -45,17 +45,14 @@ func _process(delta: float) -> void:
 	#Rotate range circle
 	$Range/Sprite2D.rotation += 0.3 * delta
 func upgrade() -> void:
-	print(Global.santaLevel)
 	for level : int in range(Global.santaLevel + 1):
 		match level:
 			0:
-				print("Level 0")
 				size = 1
 				speed = 50
 				dashEarned = false
 				attackSpeed = 0.25
 			1:
-				print("Level1")
 				dashEarned = true
 			2:
 				attackSpeed = 0.2
@@ -65,7 +62,6 @@ func upgrade() -> void:
 				rangeSize = 1.5
 				scale = Vector2(size, size)
 				$Range/CollisionShape2D.shape.radius *= rangeSize
-				print($Range/CollisionShape2D.shape.radius)
 #Gathers the inputed direction to move santa
 func getInput() -> void:
 	inputD = Input.get_vector("Left","Right","Up","Down")

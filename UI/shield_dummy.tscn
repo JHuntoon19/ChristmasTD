@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://chnq5ciq5einx"]
 
 [ext_resource type="PackedScene" uid="uid://bvfvdb12y7ddy" path="res://UI/tower_dummy.tscn" id="1_o0r58"]
-[ext_resource type="Texture2D" uid="uid://draav4b4tw8h3" path="res://graphics/shield.png" id="2_ascdo"]
+[ext_resource type="Texture2D" uid="uid://b45etux7ctnyd" path="res://graphics/shield.png" id="2_ascdo"]
 [ext_resource type="Script" path="res://Scripts/shield_dummy.gd" id="2_l3qgd"]
 [ext_resource type="PackedScene" uid="uid://cvmfwtjqibkmd" path="res://Towers/shield.tscn" id="3_ohyua"]
 

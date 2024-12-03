@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5f3bah3htew2" path="res://Projectiles/projectile.tscn" id="1_v8e65"]
 [ext_resource type="Script" path="res://Scripts/pickaxe.gd" id="2_blblr"]
-[ext_resource type="Texture2D" uid="uid://uyjut8mtd0ab" path="res://graphics/pickaxe.png" id="3_tfmqp"]
+[ext_resource type="Texture2D" uid="uid://cxwcet2fo4f6n" path="res://graphics/pickaxe.png" id="3_tfmqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xe6r"]
 size = Vector2(9.91125, 4.62697)

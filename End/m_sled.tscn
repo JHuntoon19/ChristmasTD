@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhhtkrydgdcn3"]
 
-[ext_resource type="Texture2D" uid="uid://gm66f1ntcsw6" path="res://graphics/monsterSled.png" id="1_t76vj"]
+[ext_resource type="Texture2D" uid="uid://ypl0c7cerbs4" path="res://graphics/monsterSled.png" id="1_t76vj"]
 
 [node name="MSled" type="Sprite2D"]
 texture = ExtResource("1_t76vj")

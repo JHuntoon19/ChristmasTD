@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diln8ableonfh"
-path="res://.godot/imported/Backgorund1.png-1bbf905431e805b416e34dae3499ed9b.ctex"
+uid="uid://gm66f1ntcsw6"
+path="res://.godot/imported/monsterSled.png-f7ee8e03c380653f5715868c68b0a50f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Backgorund1.png"
-dest_files=["res://.godot/imported/Backgorund1.png-1bbf905431e805b416e34dae3499ed9b.ctex"]
+source_file="res://OldArt/monsterSled.png"
+dest_files=["res://.godot/imported/monsterSled.png-f7ee8e03c380653f5715868c68b0a50f.ctex"]
 
 [params]
 

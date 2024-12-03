@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdwe07gvvd781"]
 
 [ext_resource type="Script" path="res://Scripts/santa.gd" id="1_m3ua7"]
-[ext_resource type="Texture2D" uid="uid://chdt1nycapnb" path="res://graphics/Santa.png" id="2_utfor"]
-[ext_resource type="Texture2D" uid="uid://dy28488ujas66" path="res://graphics/dottedcircle.PNG" id="3_fruxr"]
+[ext_resource type="Texture2D" uid="uid://cyrnnt2ftuveq" path="res://graphics/Santa.png" id="2_utfor"]
+[ext_resource type="Texture2D" uid="uid://dy28488ujas66" path="res://OldArt/dottedcircle.PNG" id="3_fruxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qervp"]
 size = Vector2(10.0649, 15.0311)

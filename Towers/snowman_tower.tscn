@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_xs8us"]
 [ext_resource type="Script" path="res://Scripts/snowman_tower.gd" id="2_8dmr7"]
-[ext_resource type="Texture2D" uid="uid://dgycdikpbg5gx" path="res://graphics/Snowman1.png" id="2_mm3w8"]
+[ext_resource type="Texture2D" uid="uid://bdljipv22lyly" path="res://graphics/Snowman1.png" id="2_mm3w8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t37l8"]
 size = Vector2(9.98788, 15.1144)

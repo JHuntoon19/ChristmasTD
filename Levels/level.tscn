@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://nab83olx2nfj"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_1rrgu"]
-[ext_resource type="Texture2D" uid="uid://diln8ableonfh" path="res://graphics/Backgorund1.png" id="1_c2n11"]
+[ext_resource type="Texture2D" uid="uid://diln8ableonfh" path="res://OldArt/Backgorund1.png" id="1_c2n11"]
 [ext_resource type="PackedScene" uid="uid://cqnd572jq3rwg" path="res://UI/ui.tscn" id="2_gg7t5"]
 [ext_resource type="PackedScene" uid="uid://bdwe07gvvd781" path="res://Santa/santa.tscn" id="6_3rcyo"]
-[ext_resource type="Texture2D" uid="uid://bgerx3c5ci7dm" path="res://graphics/UFO.png" id="7_v6cqn"]
+[ext_resource type="Texture2D" uid="uid://bgerx3c5ci7dm" path="res://OldArt/UFO.png" id="7_v6cqn"]
 [ext_resource type="PackedScene" uid="uid://dhhtkrydgdcn3" path="res://End/m_sled.tscn" id="8_ckyel"]
 [ext_resource type="PackedScene" uid="uid://bghphq8lsdnu6" path="res://End/sled.tscn" id="8_h6nh7"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8tvy8t4hqjfb"]
 
-[ext_resource type="Texture2D" uid="uid://c13g2ipeuqn0b" path="res://graphics/CandyCane.png" id="1_dg62s"]
+[ext_resource type="Texture2D" uid="uid://d1u1pk6yjhi6h" path="res://graphics/CandyCane.png" id="1_dg62s"]
 [ext_resource type="PackedScene" uid="uid://c5f3bah3htew2" path="res://Projectiles/projectile.tscn" id="1_jxueg"]
 
 [sub_resource type="GDScript" id="GDScript_4m5ux"]

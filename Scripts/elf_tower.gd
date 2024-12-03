@@ -3,7 +3,6 @@ class_name ElfTower
 signal Elfattack(tower : Vector2, enemy : Vector2, projSpeed : int)
 #Overwrites the default attack function and emits signal to level
 func attack() -> void:
-	print(attackSpeed)
 #	Give level info on the position of tower and the targeted enemy
 	Elfattack.emit(position,enems[0].get_parent().position, projSpeed)
 #Called during on ready

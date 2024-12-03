@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_7tf7v"]
 [ext_resource type="Theme" uid="uid://b5q6noveyul6j" path="res://UI/pixel.tres" id="1_jn5r1"]
-[ext_resource type="Texture2D" uid="uid://erc1frg0a1t" path="res://graphics/Coin.png" id="2_l35t8"]
+[ext_resource type="Texture2D" uid="uid://12xe62lwxg4i" path="res://graphics/Coin.png" id="2_l35t8"]
 [ext_resource type="PackedScene" uid="uid://btdf2eehxooux" path="res://UI/heart_i.tscn" id="4_506dq"]
-[ext_resource type="Texture2D" uid="uid://bmp6rvdothve8" path="res://graphics/arrow.png" id="4_ypjvj"]
-[ext_resource type="Texture2D" uid="uid://be482cx06gsm" path="res://graphics/ElfTower1.png" id="5_hbdk0"]
-[ext_resource type="Texture2D" uid="uid://cpuvwrbowx67i" path="res://graphics/arrow1.png" id="5_u1wp5"]
-[ext_resource type="Texture2D" uid="uid://dgycdikpbg5gx" path="res://graphics/Snowman1.png" id="6_rrrkc"]
+[ext_resource type="Texture2D" uid="uid://dkj2m23da4ws7" path="res://graphics/arrow.png" id="4_ypjvj"]
+[ext_resource type="Texture2D" uid="uid://cl1mcgq0lwmin" path="res://graphics/ElfTower1.png" id="5_hbdk0"]
+[ext_resource type="Texture2D" uid="uid://25dit0xcpm2" path="res://graphics/arrow1.png" id="5_u1wp5"]
+[ext_resource type="Texture2D" uid="uid://bdljipv22lyly" path="res://graphics/Snowman1.png" id="6_rrrkc"]
 [ext_resource type="StyleBox" uid="uid://dynynvnmmeoxy" path="res://UI/backgroundpanel.tres" id="7_k2p31"]
-[ext_resource type="Texture2D" uid="uid://kdhe0utvh8so" path="res://graphics/gnome.png" id="10_n3ot0"]
-[ext_resource type="Texture2D" uid="uid://draav4b4tw8h3" path="res://graphics/shield.png" id="11_agv4w"]
+[ext_resource type="Texture2D" uid="uid://btu8d2xarknly" path="res://graphics/gnome.png" id="10_n3ot0"]
+[ext_resource type="Texture2D" uid="uid://b45etux7ctnyd" path="res://graphics/shield.png" id="11_agv4w"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_7tf7v")

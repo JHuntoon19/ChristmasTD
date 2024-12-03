@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy28488ujas66"
-path="res://.godot/imported/dottedcircle.PNG-a9a803953f9f83d6842545e68c8eafd1.ctex"
+uid="uid://kdhe0utvh8so"
+path="res://.godot/imported/gnome.png-d8723bdd85b315574cc9ec66ca6fc451.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/dottedcircle.PNG"
-dest_files=["res://.godot/imported/dottedcircle.PNG-a9a803953f9f83d6842545e68c8eafd1.ctex"]
+source_file="res://OldArt/gnome.png"
+dest_files=["res://.godot/imported/gnome.png-d8723bdd85b315574cc9ec66ca6fc451.ctex"]
 
 [params]
 

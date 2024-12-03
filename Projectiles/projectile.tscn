@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_3phxn"]
 
 [node name="Projectile" type="Area2D" groups=["Projectile"]]
+scale = Vector2(0.75, 0.75)
 collision_layer = 8
 collision_mask = 162
 script = ExtResource("1_3phxn")

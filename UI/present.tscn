@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://dynynvnmmeoxy" path="res://UI/backgroundpanel.tres" id="1_i7ibq"]
 [ext_resource type="Script" path="res://UI/present.gd" id="2_uo7gp"]
-[ext_resource type="Texture2D" uid="uid://d62lmut4vfn4" path="res://graphics/Present1.png" id="2_xmis4"]
+[ext_resource type="Texture2D" uid="uid://b1qaid83o0i80" path="res://graphics/Present1.png" id="2_xmis4"]
 
 [node name="Present" type="PanelContainer"]
 size_flags_horizontal = 4
