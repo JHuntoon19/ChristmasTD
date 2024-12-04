@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://nab83olx2nfj"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_1rrgu"]
-[ext_resource type="Texture2D" uid="uid://diln8ableonfh" path="res://OldArt/Backgorund1.png" id="1_c2n11"]
 [ext_resource type="PackedScene" uid="uid://cqnd572jq3rwg" path="res://UI/ui.tscn" id="2_gg7t5"]
+[ext_resource type="Texture2D" uid="uid://cwxw31m58rktc" path="res://graphics/Backgorund1.png" id="3_i77w8"]
 [ext_resource type="PackedScene" uid="uid://bdwe07gvvd781" path="res://Santa/santa.tscn" id="6_3rcyo"]
 [ext_resource type="Texture2D" uid="uid://bgerx3c5ci7dm" path="res://OldArt/UFO.png" id="7_v6cqn"]
 [ext_resource type="PackedScene" uid="uid://dhhtkrydgdcn3" path="res://End/m_sled.tscn" id="8_ckyel"]
@@ -10,9 +10,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_b48rc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 480, 324, 0, 0, 0, 0, 683, 324, 0, 0, 0, 0, 683, 377, 0, 0, 0, 0, 582, 377, 0, 0, 0, 0, 582, 426, 0, 0, 0, 0, 800, 426)
+"points": PackedVector2Array(0, 0, 0, 0, 480, 397, 0, 0, 0, 0, 587, 397, 0, 0, 0, 0, 587, 329, 0, 0, 0, 0, 632, 329, 0, 0, 0, 0, 632, 385, 0, 0, 0, 0, 701, 385, 0, 0, 0, 0, 701, 432, 0, 0, 0, 0, 800, 432)
 }
-point_count = 6
+point_count = 8
 
 [sub_resource type="Animation" id="Animation_6xhu1"]
 length = 0.001
@@ -43,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 1, 1.33333, 1.53333, 1.73333, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 2,
-"values": [Vector2(822, 270), Vector2(785, 314), Vector2(734, 331), Vector2(705, 290), Vector2(645, 283), Vector2(630, 323), Vector2(571, 347), Vector2(558, 305), Vector2(502, 284)]
+"values": [Vector2(822, 270), Vector2(785, 314), Vector2(734, 331), Vector2(705, 290), Vector2(645, 283), Vector2(630, 323), Vector2(571, 347), Vector2(558, 305), Vector2(496, 374)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -75,7 +75,7 @@ script = ExtResource("1_1rrgu")
 position = Vector2(640, 360)
 
 [node name="BImage" type="Sprite2D" parent="Background"]
-texture = ExtResource("1_c2n11")
+texture = ExtResource("3_i77w8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -92,13 +92,12 @@ curve = SubResource("Curve2D_b48rc")
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="Path" type="Node2D" parent="."]
-visible = false
 
 [node name="PathHitbox" type="Area2D" parent="Path"]
 collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path/PathHitbox"]
-polygon = PackedVector2Array(480.203, 313.903, 480.036, 333.926, 673.696, 334.228, 673.696, 366.084, 578.075, 365.97, 571.95, 373.432, 571.757, 426.964, 578.719, 433.537, 800.146, 434.299, 799.865, 413.954, 592.069, 414.095, 591.789, 385.752, 686.917, 386.314, 693.652, 378.597, 694.494, 318.264, 687.619, 313.213)
+polygon = PackedVector2Array(480.139, 390.614, 581.959, 391.086, 581.959, 323.009, 638.945, 323.009, 639.063, 379.996, 707.022, 379.996, 707.022, 426.01, 800.23, 426.128, 799.876, 437.218, 695.932, 437.1, 696.168, 390.968, 627.737, 391.086, 630.097, 333.746, 592.932, 334.1, 593.168, 402.059, 480.043, 402.146)
 
 [node name="Santa" parent="." instance=ExtResource("6_3rcyo")]
 position = Vector2(628.91, 339.11)
@@ -107,9 +106,10 @@ position = Vector2(628.91, 339.11)
 position = Vector2(792.399, 429.114)
 
 [node name="Sled" parent="End" instance=ExtResource("8_h6nh7")]
+position = Vector2(0.33374, 3.3371)
 
 [node name="MSled" parent="End" instance=ExtResource("8_ckyel")]
-position = Vector2(-304.291, -100.446)
+position = Vector2(-304.886, -32.783)
 
 [node name="OpenPresents" type="Node2D" parent="."]
 
