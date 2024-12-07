@@ -18,6 +18,8 @@ collision_mask = 2
 [node name="AttackDelay" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]

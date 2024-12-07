@@ -8,6 +8,7 @@ signal dead(enemy : PathFollow2D, holder : bool)
 signal ended(enemy : PathFollow2D)
 signal begined(enemy : PathFollow2D)
 @onready var hit_timer: Timer = $HitTimer
+@onready var alien_hit: AudioStreamPlayer2D = $AlienHit
 
 func _process(delta):
 	progress_ratio += speed * delta
@@ -27,6 +28,7 @@ func _process(delta):
 func _on_hitbox_area_entered(area):
 	modulate = Color.RED
 	hit_timer.start()
+	alien_hit.play()
 	health -= 1
 #Used to flash the cow when hit
 func _on_hit_timer_timeout() -> void:

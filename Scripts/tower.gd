@@ -1,12 +1,13 @@
 extends Area2D
 class_name Tower
 @onready var attack_delay: Timer = %AttackDelay
+@onready var attack_sound: AudioStreamPlayer2D = $AttackSound
 
 #Enems is an array that holds all the enemies within range
 var enems : Array[Area2D] = []
 var canAttack : bool = true
 #Multiplies the speed by this number to increase when tower is leveled up
-var projSpeed : int = 1
+var projSpeed : float = 1
 #Holds the range of the tower
 var towerRange : int
 #Shows how fast the tower will attack
@@ -26,6 +27,7 @@ func _process(delta) -> void:
 		if(canAttack):
 			canAttack = false
 			attack_delay.start()
+			attack_sound.play()
 			attack()
 #			Will be changed by the towers themselves
 func attack() -> void:

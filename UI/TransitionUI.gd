@@ -1,5 +1,8 @@
 extends CanvasLayer
 var presentsSaved : int
+@onready var twinkle: AudioStreamPlayer = $Twinkle
+@onready var thunk: AudioStreamPlayer = $Thunk
+
 func _ready() -> void:
 	#Stores amount of saved presents
 	presentsSaved = 5 - Global.monsterPresentNum
@@ -63,6 +66,7 @@ func _on_present_5_mouse_exited() -> void:
 	unHovered(%Present5)
 func hovered(background : PanelContainer) -> void:
 		background.self_modulate = Color("ff82ff")
+		thunk.play()
 func unHovered(background : PanelContainer) -> void:
 	background.self_modulate = Color.WHITE
 
@@ -83,6 +87,7 @@ func fivePButtonPressed() -> void:
 	presentPressed(%Present5)
 #Called when a present is clicked
 func presentPressed(present : PanelContainer) -> void:
+	twinkle.play()
 	presentsSaved -= 1
 	#Gets a random upgrade
 	upgrade()
@@ -105,4 +110,9 @@ func upgrade() -> void:
 
 #Returns to the default level when pressed
 func _on_next_level_button_pressed() -> void:
+	
 	get_tree().change_scene_to_file("res://Levels/level.tscn")
+
+
+func _on_next_level_button_mouse_entered() -> void:
+	thunk.play()

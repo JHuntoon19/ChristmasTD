@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcx2gln2q22h"]
+[gd_scene load_steps=7 format=3 uid="uid://bcx2gln2q22h"]
 
 [ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_xs8us"]
 [ext_resource type="Script" path="res://Scripts/snowman_tower.gd" id="2_8dmr7"]
 [ext_resource type="Texture2D" uid="uid://bdljipv22lyly" path="res://graphics/Snowman1.png" id="2_mm3w8"]
+[ext_resource type="AudioStream" uid="uid://bvljw4wd8cxvp" path="res://Audio/Woosh.mp3" id="4_oacm6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t37l8"]
 size = Vector2(9.98788, 15.1144)
@@ -26,3 +27,7 @@ shape = SubResource("CircleShape2D_jrlk1")
 
 [node name="AttackDelay" parent="." index="3"]
 one_shot = true
+
+[node name="AttackSound" parent="." index="4"]
+stream = ExtResource("4_oacm6")
+pitch_scale = 2.0

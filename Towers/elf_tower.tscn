@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://6yqamscunved"]
+[gd_scene load_steps=7 format=3 uid="uid://6yqamscunved"]
 
 [ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_elj1d"]
 [ext_resource type="Texture2D" uid="uid://cl1mcgq0lwmin" path="res://graphics/ElfTower1.png" id="2_brq63"]
 [ext_resource type="Script" path="res://Scripts/elf_tower.gd" id="2_x2r7x"]
+[ext_resource type="AudioStream" uid="uid://2xye6rw82r0l" path="res://Audio/airEscape.mp3" id="4_gmms7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j14po"]
 size = Vector2(10.0877, 15.102)
@@ -26,3 +27,7 @@ shape = SubResource("CircleShape2D_etfu6")
 [node name="AttackDelay" parent="." index="3"]
 wait_time = 0.3
 one_shot = true
+
+[node name="AttackSound" parent="." index="4"]
+stream = ExtResource("4_gmms7")
+pitch_scale = 1.3

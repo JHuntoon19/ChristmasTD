@@ -13,6 +13,7 @@ var money : int = 0
 var monsterCount : int = 5
 @onready var monster_path: Path2D = $Enemies/MonsterPath
 @onready var spawn_timer: Timer = $SpawnTimer
+@onready var spawn: AudioStreamPlayer2D = $UFO/Spawn
 
 func _ready():
 	#Sets basic default global values
@@ -24,6 +25,7 @@ func startLevel() -> void:
 func spawnEnemies():
 	#Repeats for the monster count
 	for monster : int in monsterCount:
+		spawn.play()
 		#Chooses a random number 1 or 2 to determine the type of monster
 		var monsterType = randi_range(1,2)
 		var monsterObj : Enemy

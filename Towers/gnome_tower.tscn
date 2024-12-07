@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxq4weapq5epk"]
+[gd_scene load_steps=7 format=3 uid="uid://dxq4weapq5epk"]
 
 [ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_2omk3"]
 [ext_resource type="Script" path="res://Scripts/gnome_tower.gd" id="2_bay8v"]
 [ext_resource type="Texture2D" uid="uid://btu8d2xarknly" path="res://graphics/gnome.png" id="3_ypi31"]
+[ext_resource type="AudioStream" uid="uid://2xye6rw82r0l" path="res://Audio/airEscape.mp3" id="4_b5rrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etdg0"]
 size = Vector2(10.3236, 15.102)
@@ -26,3 +27,7 @@ shape = SubResource("CircleShape2D_ab1br")
 
 [node name="AttackDelay" parent="." index="3"]
 wait_time = 2.0
+
+[node name="AttackSound" parent="." index="4"]
+stream = ExtResource("4_b5rrk")
+pitch_scale = 0.8

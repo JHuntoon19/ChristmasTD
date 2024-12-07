@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Global.gd"
 Upgrades="*res://Scripts/Upgrades.gd"
+BackMusic="*res://Audio/back_music.tscn"
 
 [debug]
 

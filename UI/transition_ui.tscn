@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://685p5f4k8jyt"]
+[gd_scene load_steps=8 format=3 uid="uid://685p5f4k8jyt"]
 
 [ext_resource type="Script" path="res://UI/TransitionUI.gd" id="1_efiyw"]
 [ext_resource type="PackedScene" uid="uid://dqprystftsemb" path="res://UI/present.tscn" id="3_esldo"]
+[ext_resource type="AudioStream" uid="uid://dfasvg1tktfob" path="res://Audio/Twinkle.mp3" id="4_sbeei"]
 [ext_resource type="Theme" uid="uid://b5q6noveyul6j" path="res://UI/pixel.tres" id="4_vqicn"]
+[ext_resource type="AudioStream" uid="uid://b05cs52o4rvmi" path="res://Audio/thunk.mp3" id="5_yt31m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hrl2"]
 bg_color = Color(0.642338, 0, 0.104379, 1)
@@ -202,6 +204,15 @@ layout_mode = 2
 theme = ExtResource("4_vqicn")
 text = "Choose a present to open"
 
+[node name="Twinkle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sbeei")
+pitch_scale = 0.8
+
+[node name="Thunk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yt31m")
+volume_db = -15.0
+pitch_scale = 1.2
+
 [connection signal="mouse_entered" from="Middle/PanelContainer/MarginContainer/PresentHolder" to="." method="_on_present_holder_mouse_entered"]
 [connection signal="mouse_entered" from="Middle/PanelContainer/MarginContainer/PresentHolder/Present" to="." method="_on_present_mouse_entered"]
 [connection signal="mouse_exited" from="Middle/PanelContainer/MarginContainer/PresentHolder/Present" to="." method="_on_present_mouse_exited"]
@@ -218,4 +229,5 @@ text = "Choose a present to open"
 [connection signal="mouse_entered" from="Middle/PanelContainer/MarginContainer/PresentHolder/Present5" to="." method="_on_present_5_mouse_entered"]
 [connection signal="mouse_exited" from="Middle/PanelContainer/MarginContainer/PresentHolder/Present5" to="." method="_on_present_5_mouse_exited"]
 [connection signal="pressed" from="Middle/PanelContainer/MarginContainer/PresentHolder/Present5/5PButton" to="." method="fivePButtonPressed"]
+[connection signal="mouse_entered" from="Middle/ExitButton/MarginContainer/NextLevelButton" to="." method="_on_next_level_button_mouse_entered"]
 [connection signal="pressed" from="Middle/ExitButton/MarginContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]

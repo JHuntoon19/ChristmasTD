@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bguxlq4bumyw1"]
+
+[ext_resource type="AudioStream" uid="uid://s5cgjn51bf1b" path="res://Audio/Winter Joy.mp3" id="1_cepqx"]
+
+[node name="BackMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_cepqx")
+volume_db = -15.0
+autoplay = true

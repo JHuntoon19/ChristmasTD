@@ -15,7 +15,7 @@ func upgrade():
 				attackSpeed = 1
 				towerRange = 20
 				projSpeed = 1
-				projAmount
+				projAmount = 6
 			1:
 				#Increases carrot shot and attack speed
 				projAmount += 2

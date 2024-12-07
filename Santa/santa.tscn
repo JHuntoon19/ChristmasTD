@@ -1,17 +1,99 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdwe07gvvd781"]
+[gd_scene load_steps=14 format=3 uid="uid://bdwe07gvvd781"]
 
 [ext_resource type="Script" path="res://Scripts/santa.gd" id="1_m3ua7"]
-[ext_resource type="Texture2D" uid="uid://cyrnnt2ftuveq" path="res://graphics/Santa.png" id="2_utfor"]
+[ext_resource type="Texture2D" uid="uid://buihyyrvu2f30" path="res://graphics/Santa-Sheet.png" id="2_vxevj"]
 [ext_resource type="Texture2D" uid="uid://dy28488ujas66" path="res://OldArt/dottedcircle.PNG" id="3_fruxr"]
+[ext_resource type="AudioStream" uid="uid://cdexgxm1ufy02" path="res://Audio/SnowStep.mp3" id="4_o7au1"]
+[ext_resource type="AudioStream" uid="uid://otsa840oijwu" path="res://Audio/huh.mp3" id="5_a67lo"]
+[ext_resource type="AudioStream" uid="uid://bsiipm1mdngi2" path="res://Audio/Grunt.mp3" id="6_47hv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qervp"]
 size = Vector2(10.0649, 15.0311)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtetq"]
-size = Vector2(10.0649, 15.1636)
+size = Vector2(8.03622, 7.1433)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rc8ig"]
 radius = 20.0
+
+[sub_resource type="Animation" id="Animation_0rb5v"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_kf8sr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wt8s5"]
+resource_name = "Walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ca1b"]
+_data = {
+"Idle": SubResource("Animation_0rb5v"),
+"RESET": SubResource("Animation_kf8sr"),
+"Walk": SubResource("Animation_wt8s5")
+}
 
 [node name="Santa" type="CharacterBody2D"]
 collision_layer = 32
@@ -19,7 +101,9 @@ collision_mask = 10
 script = ExtResource("1_m3ua7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_utfor")
+texture = ExtResource("2_vxevj")
+hframes = 5
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -31,7 +115,7 @@ collision_layer = 32
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
-position = Vector2(0.0899029, -0.0266047)
+position = Vector2(0.0163325, 3.06814)
 shape = SubResource("RectangleShape2D_jtetq")
 
 [node name="Range" type="Area2D" parent="."]
@@ -50,6 +134,24 @@ wait_time = 0.25
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ca1b")
+}
+autoplay = "Idle"
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o7au1")
+volume_db = -8.104
+
+[node name="ThrowSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_a67lo")
+volume_db = 5.0
+
+[node name="GruntSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_47hv2")
+pitch_scale = 0.9
 
 [connection signal="area_entered" from="Detect" to="." method="_on_detect_area_entered"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

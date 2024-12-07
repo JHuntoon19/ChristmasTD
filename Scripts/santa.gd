@@ -8,8 +8,13 @@ var presentHolder : bool = false
 var dashEarned : bool = false
 var canDash : bool = true
 var dashing : bool = false
+var walking : bool = false
 @onready var attackdelay: Timer = $Attackdelay
 @onready var dash_timer: Timer = $DashTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var throw_sound: AudioStreamPlayer2D = $ThrowSound
+@onready var grunt_sound: AudioStreamPlayer2D = $GruntSound
+
 var normColor : Color = Color.WHITE
 var dashColor : Color = Color("b7a3bc74")
 var size : float = 1
@@ -33,6 +38,7 @@ func _process(delta: float) -> void:
 		attackdelay.start()
 		#Alert level the position of santa and the targeted enemy
 		santaAttack.emit(position, enems[0].get_parent().position)
+		throw_sound.play()
 	if(dashEarned and Input.is_action_just_pressed("Dash") and canDash):
 		canDash = false
 		dashing = true
@@ -65,11 +71,18 @@ func upgrade() -> void:
 #Gathers the inputed direction to move santa
 func getInput() -> void:
 	inputD = Input.get_vector("Left","Right","Up","Down")
+	if(inputD != Vector2.ZERO and walking == false):
+		walking = true
+		animation_player.play("Walk")
+	if(inputD == Vector2.ZERO and walking == true):
+		walking = false
+		animation_player.play("Idle")
 	velocity = inputD * speed
 
 #When santa is hit by an enemy or projectile
 func _on_detect_area_entered(area: Area2D) -> void:
 	if(!dashing):
+		grunt_sound.play()
 		Global.santaHeart -= 1
 #Adds the in range enemies to an array to be targeted
 func _on_range_area_entered(area: Area2D) -> void:
