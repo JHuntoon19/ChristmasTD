@@ -1,24 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://kpsenm0edbcl"]
+[gd_scene format=3 uid="uid://kpsenm0edbcl"]
 
-[ext_resource type="Script" path="res://Scripts/tower.gd" id="1_21lq5"]
+[ext_resource type="Script" uid="uid://b237ftm3ohliy" path="res://Scripts/tower.gd" id="1_21lq5"]
+[ext_resource type="PackedScene" uid="uid://j1lg3tym6lt0" path="res://UI/aim_arrow.tscn" id="2_egfuc"]
 
-[node name="Tower" type="Area2D" groups=["Tower"]]
+[node name="Tower" type="Area2D" unique_id=847032559 groups=["Tower"]]
 script = ExtResource("1_21lq5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=667473861]
 
-[node name="TSprite" type="Sprite2D" parent="."]
+[node name="TSprite" type="Sprite2D" parent="." unique_id=496742654]
 
-[node name="Range" type="Area2D" parent="."]
+[node name="Range" type="Area2D" parent="." unique_id=1120890758]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=2023302480]
 
-[node name="AttackDelay" type="Timer" parent="."]
+[node name="AttackDelay" type="Timer" parent="." unique_id=479838348]
 unique_name_in_owner = true
 
-[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="." unique_id=1131267892]
+
+[node name="AimArrow" parent="." unique_id=892255798 instance=ExtResource("2_egfuc")]
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

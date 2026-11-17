@@ -3,6 +3,10 @@ class_name Tower
 @onready var attack_delay: Timer = %AttackDelay
 @onready var attack_sound: AudioStreamPlayer2D = $AttackSound
 
+#Direction tower shoots in
+var attackDir : Vector2 = Vector2.UP
+#tower is waiting for mouse input to aim direction
+var aiming : bool = true
 #Enems is an array that holds all the enemies within range
 var enems : Array[Area2D] = []
 var canAttack : bool = true
@@ -15,6 +19,8 @@ var towerRange : int
 var attackSpeed : float
 #type of tower set in inspectore of each tower
 @export var type: Global.TowerType
+@onready var aim_arrow: Node2D = $AimArrow
+
 #Sets up variable values on instantiation
 func _init() -> void:
 	upgrade()
@@ -22,13 +28,21 @@ func _init() -> void:
 func _ready() -> void:
 	setup()
 func _process(delta) -> void:
-#	If enemies are in range and the timer has gone off it calls an attack method
-	if(!enems.is_empty()):
-		if(canAttack):
-			canAttack = false
-			attack_delay.start()
-			attack_sound.play()
-			attack()
+	#tower was just placed and needs a direction to shoot in
+	if(aiming):
+		#Gets direction to the mouse position
+		attackDir = get_global_mouse_position() - position
+		attackDir = attackDir.normalized()
+		#Player decides direction and deletes the helper arrow
+		if Input.is_action_just_pressed("click"):
+			aiming = false
+			aim_arrow.queue_free()
+#	If the timer has gone off it calls an attack method
+	if(not aiming and canAttack):
+		canAttack = false
+		attack_delay.start()
+		attack_sound.play()
+		attack()
 #			Will be changed by the towers themselves
 func attack() -> void:
 	print("attack")

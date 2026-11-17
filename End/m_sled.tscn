@@ -1,21 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhhtkrydgdcn3"]
+[gd_scene format=3 uid="uid://dhhtkrydgdcn3"]
 
-[ext_resource type="Texture2D" uid="uid://ypl0c7cerbs4" path="res://graphics/monsterSled.png" id="1_t76vj"]
+[ext_resource type="Texture2D" uid="uid://bbdevb8ppcw41" path="res://graphics/MSled.png" id="1_xya7s"]
 
-[node name="MSled" type="Sprite2D"]
-texture = ExtResource("1_t76vj")
+[node name="MSled" type="Sprite2D" unique_id=160807513]
+texture = ExtResource("1_xya7s")
 
-[node name="PresentHolder1" type="Node2D" parent="."]
+[node name="PresentHolder1" type="Node2D" parent="." unique_id=849302273]
 position = Vector2(-3.65751, -1.71077)
 
-[node name="PresentHolder2" type="Node2D" parent="."]
+[node name="PresentHolder2" type="Node2D" parent="." unique_id=741999443]
 position = Vector2(1.00286, -4.83735)
 
-[node name="PresentHolder3" type="Node2D" parent="."]
+[node name="PresentHolder3" type="Node2D" parent="." unique_id=1651396479]
 position = Vector2(-1.65178, -3.59852)
 
-[node name="PresentHolder4" type="Node2D" parent="."]
+[node name="PresentHolder4" type="Node2D" parent="." unique_id=2012077185]
 position = Vector2(-5.07333, -6.07619)
 
-[node name="PresentHolder5" type="Node2D" parent="."]
+[node name="PresentHolder5" type="Node2D" parent="." unique_id=932543817]
 position = Vector2(4.60138, -4.66038)

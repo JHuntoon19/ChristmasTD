@@ -1,11 +1,11 @@
 extends Tower
-signal gnomeAttack(tower : Vector2, enemy : Vector2, spinSpeed : float, size : float)
+signal gnomeAttack(tower : Vector2, attackDir : Vector2, spinSpeed : float, size : float)
 var rotateSpeed : float = 1
 var projSize : float = 1
 #Overwrites default attack method
 func attack() -> void:
-#	Gives level info on tower position and the amount of carrots to shoot
-	gnomeAttack.emit(position, enems[0].get_parent().position, rotateSpeed, projSize)
+#	Gives level info on tower position and direction and speed to throw pickaxes
+	gnomeAttack.emit(position, attackDir, rotateSpeed, projSize)
 #Called on initilization
 func upgrade() -> void:
 	#Loops through and applies upgrades based on level

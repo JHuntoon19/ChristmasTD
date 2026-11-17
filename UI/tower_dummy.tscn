@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvfvdb12y7ddy"]
+[gd_scene format=3 uid="uid://bvfvdb12y7ddy"]
 
-[ext_resource type="Script" path="res://Scripts/tower_dummy.gd" id="1_3pypu"]
+[ext_resource type="Script" uid="uid://cwscdi2w00ucp" path="res://Scripts/tower_dummy.gd" id="1_3pypu"]
 [ext_resource type="Texture2D" uid="uid://ho1mg6uog5hw" path="res://graphics/fullCircle.png" id="2_u5qgn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obh4k"]
@@ -9,28 +9,28 @@ size = Vector2(10.2616, 15.1838)
 [sub_resource type="CircleShape2D" id="CircleShape2D_date0"]
 radius = 40.0
 
-[node name="TowerDummy" type="Node2D"]
+[node name="TowerDummy" type="Node2D" unique_id=1951225458]
 script = ExtResource("1_3pypu")
 
-[node name="RangeCircle" type="Sprite2D" parent="."]
+[node name="RangeCircle" type="Sprite2D" parent="." unique_id=1051247907]
 self_modulate = Color(0.847059, 0.219608, 0.258824, 0.639216)
 scale = Vector2(0.109, 0.108)
 texture = ExtResource("2_u5qgn")
 
-[node name="Image" type="Sprite2D" parent="."]
+[node name="Image" type="Sprite2D" parent="." unique_id=1552578612]
 
-[node name="hitbox" type="Area2D" parent="."]
-collision_mask = 17
+[node name="hitbox" type="Area2D" parent="." unique_id=304094154]
+collision_mask = 1025
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1195037581]
 position = Vector2(0.0309906, 0.00377607)
 shape = SubResource("RectangleShape2D_obh4k")
 
-[node name="range" type="Area2D" parent="."]
+[node name="range" type="Area2D" parent="." unique_id=158763119]
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="range" unique_id=1132822961]
 shape = SubResource("CircleShape2D_date0")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

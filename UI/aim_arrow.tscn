@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://j1lg3tym6lt0"]
+
+[ext_resource type="Texture2D" uid="uid://c1empn6ux0tvb" path="res://graphics/aimArrow.png" id="1_bpo7i"]
+[ext_resource type="Script" uid="uid://bags1yfdmxv4l" path="res://Scripts/aim_arrow.gd" id="1_hm61u"]
+
+[node name="AimArrow" type="Node2D" unique_id=892255798]
+script = ExtResource("1_hm61u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1765771532]
+position = Vector2(8, 0)
+texture = ExtResource("1_bpo7i")

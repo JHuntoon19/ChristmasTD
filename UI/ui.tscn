@@ -1,27 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqnd572jq3rwg"]
+[gd_scene format=3 uid="uid://cqnd572jq3rwg"]
 
-[ext_resource type="Script" path="res://UI/ui.gd" id="1_7tf7v"]
+[ext_resource type="Script" uid="uid://c0b4cm38cj1lo" path="res://UI/ui.gd" id="1_7tf7v"]
 [ext_resource type="Theme" uid="uid://b5q6noveyul6j" path="res://UI/pixel.tres" id="1_jn5r1"]
 [ext_resource type="Texture2D" uid="uid://12xe62lwxg4i" path="res://graphics/Coin.png" id="2_l35t8"]
 [ext_resource type="PackedScene" uid="uid://btdf2eehxooux" path="res://UI/heart_i.tscn" id="4_506dq"]
 [ext_resource type="Texture2D" uid="uid://dkj2m23da4ws7" path="res://graphics/arrow.png" id="4_ypjvj"]
-[ext_resource type="Texture2D" uid="uid://cl1mcgq0lwmin" path="res://graphics/ElfTower1.png" id="5_hbdk0"]
 [ext_resource type="Texture2D" uid="uid://25dit0xcpm2" path="res://graphics/arrow1.png" id="5_u1wp5"]
-[ext_resource type="Texture2D" uid="uid://bdljipv22lyly" path="res://graphics/Snowman1.png" id="6_rrrkc"]
 [ext_resource type="StyleBox" uid="uid://dynynvnmmeoxy" path="res://UI/backgroundpanel.tres" id="7_k2p31"]
-[ext_resource type="Texture2D" uid="uid://btu8d2xarknly" path="res://graphics/gnome.png" id="10_n3ot0"]
+[ext_resource type="Texture2D" uid="uid://b6w05rgnuuhrr" path="res://graphics/ElfTower.png" id="8_6rr40"]
+[ext_resource type="Texture2D" uid="uid://uqpemj43di7y" path="res://graphics/SnowMan.png" id="9_6rr40"]
+[ext_resource type="Texture2D" uid="uid://cietd8ggj5g2u" path="res://graphics/Dwarf.png" id="10_6rr40"]
 [ext_resource type="Texture2D" uid="uid://b45etux7ctnyd" path="res://graphics/shield.png" id="11_agv4w"]
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=1040221054]
 script = ExtResource("1_7tf7v")
 
-[node name="TopLeft" type="Control" parent="."]
+[node name="TopLeft" type="Control" parent="." unique_id=88802675]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopLeft"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopLeft" unique_id=1112839467]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 9.502
@@ -30,46 +30,46 @@ offset_right = -340.08
 offset_bottom = -35.68
 theme_override_constants/separation = 40
 
-[node name="Money" type="PanelContainer" parent="TopLeft/HBoxContainer"]
+[node name="Money" type="PanelContainer" parent="TopLeft/HBoxContainer" unique_id=1910768209]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TopLeft/HBoxContainer/Money"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TopLeft/HBoxContainer/Money" unique_id=1001651574]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TopLeft/HBoxContainer/Money/VBoxContainer"]
+[node name="Label" type="Label" parent="TopLeft/HBoxContainer/Money/VBoxContainer" unique_id=789615730]
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "Money"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopLeft/HBoxContainer/Money/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopLeft/HBoxContainer/Money/VBoxContainer" unique_id=24625145]
 layout_mode = 2
 
-[node name="MoneyText" type="Label" parent="TopLeft/HBoxContainer/Money/VBoxContainer/HBoxContainer"]
+[node name="MoneyText" type="Label" parent="TopLeft/HBoxContainer/Money/VBoxContainer/HBoxContainer" unique_id=142623764]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "0000"
 
-[node name="TextureRect" type="TextureRect" parent="TopLeft/HBoxContainer/Money/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="TopLeft/HBoxContainer/Money/VBoxContainer/HBoxContainer" unique_id=264101821]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
-[node name="Heart" type="PanelContainer" parent="TopLeft/HBoxContainer"]
+[node name="Heart" type="PanelContainer" parent="TopLeft/HBoxContainer" unique_id=947201029]
 layout_mode = 2
 
-[node name="HeartHolder" type="HBoxContainer" parent="TopLeft/HBoxContainer/Heart"]
+[node name="HeartHolder" type="HBoxContainer" parent="TopLeft/HBoxContainer/Heart" unique_id=594552398]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HeartI" parent="TopLeft/HBoxContainer/Heart/HeartHolder" instance=ExtResource("4_506dq")]
+[node name="HeartI" parent="TopLeft/HBoxContainer/Heart/HeartHolder" unique_id=459077264 instance=ExtResource("4_506dq")]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="TopLeft/HBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="TopLeft/HBoxContainer" unique_id=1892711732]
 layout_mode = 2
 
-[node name="SideHidden" type="Control" parent="."]
+[node name="SideHidden" type="Control" parent="." unique_id=2052801401]
 visible = false
 layout_mode = 3
 anchors_preset = 6
@@ -83,7 +83,7 @@ offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="ShowSideButton" type="TextureButton" parent="SideHidden"]
+[node name="ShowSideButton" type="TextureButton" parent="SideHidden" unique_id=1545885970]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -104,7 +104,7 @@ texture_hover = ExtResource("5_u1wp5")
 ignore_texture_size = true
 stretch_mode = 3
 
-[node name="SideVisible" type="Control" parent="."]
+[node name="SideVisible" type="Control" parent="." unique_id=640541099]
 layout_mode = 3
 anchor_left = 0.795
 anchor_right = 1.0
@@ -113,7 +113,7 @@ offset_left = 0.399963
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="SideVisible"]
+[node name="Background" type="ColorRect" parent="SideVisible" unique_id=1838147412]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,8 +122,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.780392, 0.552941, 0.364706, 0.545098)
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible"]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible" unique_id=1643845168]
+layout_mode = 0
 offset_right = 262.0
 offset_bottom = 100.0
 mouse_filter = 2
@@ -132,219 +132,219 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SideVisible/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SideVisible/MarginContainer" unique_id=371784895]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Row1" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer"]
+[node name="Row1" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=1670473360]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1"]
+[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1" unique_id=558554588]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("7_k2p31")
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer" unique_id=960816559]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="ElfTowerButton" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer/MarginContainer"]
+[node name="ElfTowerButton" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer/MarginContainer" unique_id=163711866]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("5_hbdk0")
+texture_normal = ExtResource("8_6rr40")
 stretch_mode = 5
 
-[node name="PanelContainer2" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1"]
+[node name="PanelContainer2" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1" unique_id=2055909593]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("7_k2p31")
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer2" unique_id=731833980]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="SnowmanTower" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer2/MarginContainer"]
+[node name="SnowmanTower" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer2/MarginContainer" unique_id=659733988]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("6_rrrkc")
+texture_normal = ExtResource("9_6rr40")
 stretch_mode = 5
 
-[node name="Row1Money" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer"]
+[node name="Row1Money" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=1371913977]
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money" unique_id=1070619236]
 layout_mode = 2
 theme_override_constants/margin_right = 7
 
-[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer" unique_id=863675461]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer" unique_id=692309900]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer" unique_id=1258038686]
 layout_mode = 2
 
-[node name="ElfCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="ElfCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1674509318]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "30"
 
-[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1196170848]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money"]
+[node name="MarginContainer2" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money" unique_id=1201888372]
 layout_mode = 2
 theme_override_constants/margin_left = 7
 
-[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2" unique_id=1357252395]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer" unique_id=2136452495]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer" unique_id=958726936]
 layout_mode = 2
 
-[node name="SnowCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="SnowCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=1598312078]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "45"
 
-[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=997261315]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
-[node name="Row2" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer"]
+[node name="Row2" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=698150736]
 layout_mode = 2
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2"]
+[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2" unique_id=1583918526]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("7_k2p31")
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer" unique_id=224730961]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="gnome" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer/MarginContainer"]
+[node name="gnome" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer/MarginContainer" unique_id=826350666]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture_normal = ExtResource("10_n3ot0")
+texture_normal = ExtResource("10_6rr40")
 stretch_mode = 5
 
-[node name="PanelContainer2" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2"]
+[node name="PanelContainer2" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2" unique_id=1518544308]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("7_k2p31")
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer2" unique_id=1534345241]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Shield" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer2/MarginContainer"]
+[node name="Shield" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer2/MarginContainer" unique_id=1285345642]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture_normal = ExtResource("11_agv4w")
 stretch_mode = 5
 
-[node name="Row1Money2" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer"]
+[node name="Row1Money2" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=1845839136]
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2" unique_id=2118880558]
 layout_mode = 2
 theme_override_constants/margin_right = 7
 
-[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer" unique_id=1301820238]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer" unique_id=512765056]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer" unique_id=1195158264]
 layout_mode = 2
 
-[node name="GnomeCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="GnomeCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1165938720]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "45"
 
-[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1536076045]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2"]
+[node name="MarginContainer2" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2" unique_id=366757458]
 layout_mode = 2
 theme_override_constants/margin_left = 7
 
-[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2" unique_id=1261721758]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer" unique_id=398285947]
 layout_mode = 2
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer" unique_id=433229153]
 layout_mode = 2
 
-[node name="ShieldCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="ShieldCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=1394702845]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "15"
 
-[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=63293919]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
-[node name="SideShownButton" type="Control" parent="SideVisible"]
+[node name="SideShownButton" type="Control" parent="SideVisible" unique_id=80757646]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -352,7 +352,7 @@ anchor_bottom = 0.5
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HideSideButton" type="TextureButton" parent="SideVisible/SideShownButton"]
+[node name="HideSideButton" type="TextureButton" parent="SideVisible/SideShownButton" unique_id=1735591883]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

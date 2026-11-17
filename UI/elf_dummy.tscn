@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://br6hgpircarf6"]
+[gd_scene format=3 uid="uid://br6hgpircarf6"]
 
 [ext_resource type="PackedScene" uid="uid://bvfvdb12y7ddy" path="res://UI/tower_dummy.tscn" id="1_uu726"]
-[ext_resource type="Script" path="res://Scripts/elf_dummy.gd" id="2_5n0vo"]
-[ext_resource type="Texture2D" uid="uid://cl1mcgq0lwmin" path="res://graphics/ElfTower1.png" id="3_0da4n"]
+[ext_resource type="Script" uid="uid://dc765r0w4dcum" path="res://Scripts/elf_dummy.gd" id="2_5n0vo"]
 [ext_resource type="PackedScene" uid="uid://6yqamscunved" path="res://Towers/elf_tower.tscn" id="3_j1vb8"]
+[ext_resource type="Texture2D" uid="uid://b6w05rgnuuhrr" path="res://graphics/ElfTower.png" id="4_kcbpm"]
 
-[node name="elfDummy" instance=ExtResource("1_uu726")]
+[node name="elfDummy" unique_id=596023486 instance=ExtResource("1_uu726")]
 script = ExtResource("2_5n0vo")
 cost = 30
 tower = ExtResource("3_j1vb8")
 
-[node name="Image" parent="." index="1"]
-texture = ExtResource("3_0da4n")
+[node name="Image" parent="." index="1" unique_id=1552578612]
+texture = ExtResource("4_kcbpm")

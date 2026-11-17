@@ -1,57 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://bghphq8lsdnu6"]
+[gd_scene format=3 uid="uid://bghphq8lsdnu6"]
 
-[ext_resource type="Texture2D" uid="uid://baq8mjg8jada" path="res://graphics/sled.png" id="1_2a271"]
-[ext_resource type="Script" path="res://Scripts/sled.gd" id="2_c35of"]
+[ext_resource type="Texture2D" uid="uid://g2qv2nsaj6hp" path="res://graphics/Sled.png" id="1_su2s0"]
+[ext_resource type="Script" uid="uid://cvsaval8cs3u3" path="res://Scripts/sled.gd" id="2_c35of"]
 [ext_resource type="PackedScene" uid="uid://da016inug8ndm" path="res://End/present_i.tscn" id="3_nhjhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xq6m"]
 size = Vector2(15.1532, 10.2425)
 
-[node name="Sled" type="Sprite2D"]
+[node name="Sled" type="Sprite2D" unique_id=1733072236]
 z_index = 1
-texture = ExtResource("1_2a271")
+texture = ExtResource("1_su2s0")
 script = ExtResource("2_c35of")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=217685298]
 collision_layer = 512
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1877864501]
 position = Vector2(-0.0561008, -0.0558724)
 shape = SubResource("RectangleShape2D_6xq6m")
 
-[node name="PresentHolder1" type="Node2D" parent="."]
+[node name="PresentHolder1" type="Node2D" parent="." unique_id=758594856]
 show_behind_parent = true
 position = Vector2(-4.31235, -6.15906)
 rotation = 0.359538
 
-[node name="Sprite2D" parent="PresentHolder1" instance=ExtResource("3_nhjhw")]
+[node name="Sprite2D" parent="PresentHolder1" unique_id=898558197 instance=ExtResource("3_nhjhw")]
 
-[node name="PresentHolder2" type="Node2D" parent="."]
+[node name="PresentHolder2" type="Node2D" parent="." unique_id=1124044015]
 show_behind_parent = true
 position = Vector2(4.70248, -4.96558)
 rotation = -0.23911
 
-[node name="Sprite2D" parent="PresentHolder2" instance=ExtResource("3_nhjhw")]
+[node name="Sprite2D" parent="PresentHolder2" unique_id=865185330 instance=ExtResource("3_nhjhw")]
 
-[node name="PresentHolder3" type="Node2D" parent="."]
+[node name="PresentHolder3" type="Node2D" parent="." unique_id=943215474]
 show_behind_parent = true
 position = Vector2(0.0140805, -4.53665)
 
-[node name="Sprite2D" parent="PresentHolder3" instance=ExtResource("3_nhjhw")]
+[node name="Sprite2D" parent="PresentHolder3" unique_id=1473031373 instance=ExtResource("3_nhjhw")]
 
-[node name="PresentHolder4" type="Node2D" parent="."]
+[node name="PresentHolder4" type="Node2D" parent="." unique_id=219760413]
 show_behind_parent = true
 position = Vector2(-3.48511, -2.0292)
 rotation = -0.340339
 
-[node name="Sprite2D" parent="PresentHolder4" instance=ExtResource("3_nhjhw")]
+[node name="Sprite2D" parent="PresentHolder4" unique_id=1595637553 instance=ExtResource("3_nhjhw")]
 
-[node name="PresentHolder5" type="Node2D" parent="."]
+[node name="PresentHolder5" type="Node2D" parent="." unique_id=238585117]
 show_behind_parent = true
 position = Vector2(4.99308, -2.48533)
 rotation = 0.23911
 
-[node name="Sprite2D" parent="PresentHolder5" instance=ExtResource("3_nhjhw")]
+[node name="Sprite2D" parent="PresentHolder5" unique_id=917388796 instance=ExtResource("3_nhjhw")]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

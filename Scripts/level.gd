@@ -14,10 +14,9 @@ var monsterCount : int = 5
 @onready var monster_path: Path2D = $Enemies/MonsterPath
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var spawn: AudioStreamPlayer2D = $UFO/Spawn
-
 func _ready():
 	#Sets basic default global values
-	Global.money += 45
+	Global.money += 1000
 	Global.heartUpdate.emit(Global.santaHeart)
 	startLevel()
 func startLevel() -> void:
@@ -67,10 +66,9 @@ func ended(enemy : Enemy) -> void:
 		Global.presentNum -= 1
 #When elf wants to attack
 #The tower and enemy are their positions
-func elfTowerAttack(tower : Vector2, enemy : Vector2, projSpeed : int) -> void:
+func elfTowerAttack(tower : Vector2, direction : Vector2, projSpeed : int) -> void:
 #	Instantiates a candy cane and gives it the correct position directio and speed
 	var CC : Projectile = CCScene.instantiate()
-	var direction : Vector2 = Vector2 (enemy - tower).normalized()
 	CC.position = tower
 	CC.direction = direction
 	CC.rotation = direction.angle()
@@ -78,15 +76,19 @@ func elfTowerAttack(tower : Vector2, enemy : Vector2, projSpeed : int) -> void:
 	projectiles.call_deferred("add_child",CC)
 
 #When the snowman wants to attack
-func snowmanAttack(tower : Tower, projNum : int, projSpeed : int) -> void:
-#	Ang splits up a circle into even parts
-	var ang : float = 2 * PI / (projNum)
+func snowmanAttack(tower : Tower, projNum : int, projSpeed : int, attackDir : Vector2) -> void:
+#	Ang splits up 60 degrees into even parts. This angle will be continually added
+	var ang : float = PI / 3 / (projNum)
+	#angle to attack in
+	var attackAngle = attackDir.angle()
+	#We need to offset so that the middle projectile is in line with attack angle
+	var starterAngle = attackAngle - (((projNum - 1) / 2) * ang)
 #	Repeats for the given amount of times
 	for n : int in range(projNum):
 #		Creates a carrot with the correct position and direction
 		var Ca : Projectile = CaScene.instantiate()
-#		add parts of the circle each time to end with carrots evenly spread
-		var rotationAngle : float = ang * n
+#		add bits of the full angle to the starting angle
+		var rotationAngle : float = starterAngle + ang * n
 #		Trig to find the x and y values of the carrot's direction
 		var direction : Vector2 = Vector2 (cos(rotationAngle), sin(rotationAngle))
 		#Sets carrot on right path with right speed
@@ -95,12 +97,11 @@ func snowmanAttack(tower : Tower, projNum : int, projSpeed : int) -> void:
 		Ca.position = tower.position
 		Ca.speed *= projSpeed
 		projectiles.call_deferred("add_child", Ca)
-func gnomeAttack(position : Vector2, enemy : Vector2, rotateSpeed : float, size : float):
+func gnomeAttack(position : Vector2, attackDir : Vector2, rotateSpeed : float, size : float):
 	#	Instantiates a pckaxe and gives it the correct position and direction
 	var PA : PickAxe = preload("res://Projectiles/pickaxe.tscn").instantiate()
-	var direction : Vector2 = Vector2 (enemy - position).normalized()
 	PA.position = position
-	PA.direction = direction
+	PA.direction = attackDir
 	PA.rotateSpeed = rotateSpeed
 	PA.scale = Vector2(size,size)
 	projectiles.call_deferred("add_child",PA)

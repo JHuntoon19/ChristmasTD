@@ -5,7 +5,9 @@ class_name TowerDummy
 signal placeTower(position : Vector2, towerName : String)
 @export var type: Global.TowerType
 var placeable : bool = true
-var areas : Array[int] = []
+var onPlatform : bool = false
+var inTower : bool = false
+var areas : Array[Area2D] = []
 var circColor : Color = Color("6a6a6a84")
 var unColor : Color = Color("d83842a3")
 @export var cost : int = 0
@@ -18,8 +20,19 @@ func _ready():
 func _process(delta):
 	#Makes dummy follow mouse
 	position = get_global_mouse_position()
-	#Checks that the tower is not overlapping any others and that the player has enough money
-	placeable = areas.is_empty() and Global.money >= cost
+	#Checks that the tower is not overlapping any others and on a built platform and that the player has enough money
+	onPlatform = false
+	inTower = false
+	
+	for area :Area2D in areas:
+		#checks if any areas it is colliding with are a platform
+		if area.get_collision_layer_value(11):
+			onPlatform = true
+		#Checks if any areas it is colliding with are a tower
+		if area.get_collision_layer_value(1):
+			inTower = true
+	#Determines if a tower is in a valid position with enough moneey
+	placeable = onPlatform and Global.money >= cost and not inTower
 	if(placeable):
 		#If the tower can be places makes the range circle gray
 		$RangeCircle.self_modulate = circColor
@@ -55,8 +68,9 @@ func setup() -> void:
 
 #Ensures that the dummy is not overlapping anything so that it can be placed
 func _on_hitbox_area_entered(area):
-	areas.append(1)
+	areas.append(area)
+	
 func _on_hitbox_area_exited(area):
-	areas.remove_at(areas.size() - 1)
+	areas.erase(area)
 func upgrade():
 	pass

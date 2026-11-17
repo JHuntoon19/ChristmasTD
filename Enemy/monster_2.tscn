@@ -1,13 +1,91 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwb5e33hm45pj"]
+[gd_scene format=3 uid="uid://cwb5e33hm45pj"]
 
 [ext_resource type="PackedScene" uid="uid://cqx788f7m1dki" path="res://Enemy/Enemy.tscn" id="1_lipni"]
-[ext_resource type="Script" path="res://Scripts/monster_2.gd" id="2_1yoht"]
-[ext_resource type="Texture2D" uid="uid://dhwigfr68yyej" path="res://graphics/monster2.png" id="3_8gt64"]
+[ext_resource type="Script" uid="uid://bhp1qljhjv5ye" path="res://Scripts/monster_2.gd" id="2_1yoht"]
+[ext_resource type="Texture2D" uid="uid://dsq3wiob2hhl3" path="res://graphics/Monster2.png" id="3_gpyi8"]
 
-[node name="monster2" instance=ExtResource("1_lipni")]
+[sub_resource type="Animation" id="Animation_j2vq3"]
+resource_name = "Crawl"
+length = 1.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/EImage:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_rc0w6"]
+resource_name = "Hurt"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/EImage:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"crawl"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bato3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/EImage:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_418yb"]
+_data = {
+&"Crawl": SubResource("Animation_j2vq3"),
+&"Hurt": SubResource("Animation_rc0w6"),
+&"RESET": SubResource("Animation_bato3")
+}
+
+[node name="monster2" unique_id=1989577251 instance=ExtResource("1_lipni")]
 script = ExtResource("2_1yoht")
 speed = 0.07
 health = 5
 
-[node name="EImage" parent="Hitbox" index="0"]
-texture = ExtResource("3_8gt64")
+[node name="EImage" parent="Hitbox" parent_id_path=PackedInt32Array(736583290) index="0" unique_id=951839348]
+texture = ExtResource("3_gpyi8")
+hframes = 7
+vframes = 3
+frame = 7
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=641824923]
+libraries/ = SubResource("AnimationLibrary_418yb")
+autoplay = &"Crawl"

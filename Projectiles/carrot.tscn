@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://drpclq711lwdy"]
+[gd_scene format=3 uid="uid://drpclq711lwdy"]
 
 [ext_resource type="PackedScene" uid="uid://c5f3bah3htew2" path="res://Projectiles/projectile.tscn" id="1_kioxt"]
-[ext_resource type="Script" path="res://Scripts/carrot.gd" id="1_xqf6k"]
-[ext_resource type="Texture2D" uid="uid://c1daejr07hn4g" path="res://graphics/Carrott.png" id="3_04v7d"]
+[ext_resource type="Script" uid="uid://bpxmhaiu7l5pb" path="res://Scripts/carrot.gd" id="1_xqf6k"]
+[ext_resource type="Texture2D" uid="uid://dlj1sw7uik08u" path="res://graphics/Carrot.png" id="3_s5l15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52uno"]
-size = Vector2(10.2941, 4.9798)
+size = Vector2(8, 4.9798)
 
-[node name="Carrot" instance=ExtResource("1_kioxt")]
+[node name="Carrot" unique_id=1144919654 instance=ExtResource("1_kioxt")]
 script = ExtResource("1_xqf6k")
 speed = 30
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.0634069, -0.0303969)
+position = Vector2(0, -0.0303969)
 shape = SubResource("RectangleShape2D_52uno")
 
 [node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("3_04v7d")
+rotation = -0.7853982
+texture = ExtResource("3_s5l15")

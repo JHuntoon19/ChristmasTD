@@ -5,21 +5,21 @@ var projAmount : int = 6
 #Overwrites default attack method
 func attack() -> void:
 #	Gives level info on tower position and the amount of carrots to shoot
-	snowmanAttack.emit(self, projAmount, projSpeed)
+	snowmanAttack.emit(self, projAmount, projSpeed, attackDir)
 #Called on on ready
 func upgrade():
 	#Loops through and applies level upgrades for all levels
 	for level in range(Global.snowLevel + 1):
 		match level:
 			0:
-				attackSpeed = 1
+				attackSpeed = 1.2
 				towerRange = 20
 				projSpeed = 1
-				projAmount = 6
+				projAmount =3
 			1:
 				#Increases carrot shot and attack speed
 				projAmount += 2
-				attackSpeed = 0.7
+				attackSpeed = 1.2
 			2:
 				#Increases range, carrot amount and speed of the carrot
 				projAmount += 2

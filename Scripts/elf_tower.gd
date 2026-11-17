@@ -1,10 +1,10 @@
 extends Tower
 class_name ElfTower
-signal Elfattack(tower : Vector2, enemy : Vector2, projSpeed : int)
+signal Elfattack(tower : Vector2, attackDir : Vector2, projSpeed : int)
 #Overwrites the default attack function and emits signal to level
 func attack() -> void:
-#	Give level info on the position of tower and the targeted enemy
-	Elfattack.emit(position,enems[0].get_parent().position, projSpeed)
+#	Give level info on the position of tower and the direction to shoot in
+	Elfattack.emit(position,attackDir, projSpeed)
 #Called during on ready
 func upgrade() -> void:
 	#Loops through the values so that a level three tower still get all 
@@ -15,7 +15,7 @@ func upgrade() -> void:
 			0:
 				#Default valus for the range, attack speed, and projectile speed
 				towerRange = 40
-				attackSpeed = 0.3
+				attackSpeed = 0.75
 				projSpeed = 1
 			1:
 				#Increases speed he attacks and speed of candycanes
