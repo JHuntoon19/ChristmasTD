@@ -125,7 +125,7 @@ collision_layer = 16
 polygon = PackedVector2Array(481, 308, 481, 323, 696, 323, 697, 360, 621, 361, 622, 427, 800, 430, 799, 416, 634, 416, 633, 373, 711, 375, 713, 309)
 
 [node name="Santa" parent="." unique_id=965313116 instance=ExtResource("6_3rcyo")]
-position = Vector2(628.91, 339.11)
+position = Vector2(674, 340)
 
 [node name="End" type="Node2D" parent="." unique_id=1413450805]
 position = Vector2(769, 419)

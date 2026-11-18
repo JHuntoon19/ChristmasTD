@@ -34,7 +34,7 @@ func _on_elf_tower_button_mouse_entered():
 func _on_snowman_tower_mouse_entered():
 	buttonHovered(%SnowmanTower.get_parent().get_parent())
 func buttonHovered(background : PanelContainer):
-	background.self_modulate = Color("ff82ff")
+	background.self_modulate = Color("7dffd4")
 func buttonUnHovered(background : PanelContainer):
 	background.self_modulate = Color.WHITE
 func _on_snowman_tower_mouse_exited():

@@ -9,6 +9,7 @@ var dashEarned : bool = false
 var canDash : bool = true
 var dashing : bool = false
 var walking : bool = false
+var hurting : bool = false
 @onready var attackdelay: Timer = $Attackdelay
 @onready var dash_timer: Timer = $DashTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -71,10 +72,10 @@ func upgrade() -> void:
 #Gathers the inputed direction to move santa
 func getInput() -> void:
 	inputD = Input.get_vector("Left","Right","Up","Down")
-	if(inputD != Vector2.ZERO and walking == false):
+	if(inputD != Vector2.ZERO and walking == false and hurting == false):
 		walking = true
 		animation_player.play("Walk")
-	if(inputD == Vector2.ZERO and walking == true):
+	if(inputD == Vector2.ZERO and walking == true and hurting == false):
 		walking = false
 		animation_player.play("Idle")
 	velocity = inputD * speed
@@ -82,8 +83,7 @@ func getInput() -> void:
 #When santa is hit by an enemy or projectile
 func _on_detect_area_entered(area: Area2D) -> void:
 	if(!dashing):
-		grunt_sound.play()
-		Global.santaHeart -= 1
+		hurt()
 #Adds the in range enemies to an array to be targeted
 func _on_range_area_entered(area: Area2D) -> void:
 	enems.append(area)
@@ -96,3 +96,14 @@ func _on_dash_timer_timeout() -> void:
 	canDash = true
 	dashing = false
 	modulate = normColor
+#Santa is hurt and takes damage
+func hurt():
+	grunt_sound.play()
+	Global.santaHeart -= 1
+	animation_player.play("Hurt")
+	hurting = true
+#Functin called from the animation player to let player walk and idle animate again
+func noHurt():
+	hurting = false
+	animation_player.play("Walk")
+	walking = true

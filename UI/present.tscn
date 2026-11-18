@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqprystftsemb"]
+[gd_scene format=3 uid="uid://dqprystftsemb"]
 
 [ext_resource type="StyleBox" uid="uid://dynynvnmmeoxy" path="res://UI/backgroundpanel.tres" id="1_i7ibq"]
-[ext_resource type="Script" path="res://UI/present.gd" id="2_uo7gp"]
-[ext_resource type="Texture2D" uid="uid://b1qaid83o0i80" path="res://graphics/Present1.png" id="2_xmis4"]
+[ext_resource type="Script" uid="uid://de4bdyu7kgqui" path="res://UI/present.gd" id="2_uo7gp"]
+[ext_resource type="Texture2D" uid="uid://bqnhgyawusfts" path="res://graphics/Present.png" id="3_4188s"]
 
-[node name="Present" type="PanelContainer"]
+[node name="Present" type="PanelContainer" unique_id=1964245361]
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("1_i7ibq")
 script = ExtResource("2_uo7gp")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=532454366]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PresentI" type="TextureRect" parent="MarginContainer"]
+[node name="PresentI" type="TextureRect" parent="MarginContainer" unique_id=1537215813]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture = ExtResource("2_xmis4")
+texture = ExtResource("3_4188s")
 stretch_mode = 5

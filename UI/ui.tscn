@@ -3,14 +3,31 @@
 [ext_resource type="Script" uid="uid://c0b4cm38cj1lo" path="res://UI/ui.gd" id="1_7tf7v"]
 [ext_resource type="Theme" uid="uid://b5q6noveyul6j" path="res://UI/pixel.tres" id="1_jn5r1"]
 [ext_resource type="Texture2D" uid="uid://12xe62lwxg4i" path="res://graphics/Coin.png" id="2_l35t8"]
+[ext_resource type="StyleBox" uid="uid://dfq22h6mcuxsb" path="res://UI/BoxSettings.tres" id="2_o2jkc"]
+[ext_resource type="LabelSettings" uid="uid://b2x0r5rluk0vh" path="res://UI/TextLabelSettings.tres" id="3_2qbci"]
 [ext_resource type="PackedScene" uid="uid://btdf2eehxooux" path="res://UI/heart_i.tscn" id="4_506dq"]
-[ext_resource type="Texture2D" uid="uid://dkj2m23da4ws7" path="res://graphics/arrow.png" id="4_ypjvj"]
-[ext_resource type="Texture2D" uid="uid://25dit0xcpm2" path="res://graphics/arrow1.png" id="5_u1wp5"]
-[ext_resource type="StyleBox" uid="uid://dynynvnmmeoxy" path="res://UI/backgroundpanel.tres" id="7_k2p31"]
 [ext_resource type="Texture2D" uid="uid://b6w05rgnuuhrr" path="res://graphics/ElfTower.png" id="8_6rr40"]
 [ext_resource type="Texture2D" uid="uid://uqpemj43di7y" path="res://graphics/SnowMan.png" id="9_6rr40"]
+[ext_resource type="StyleBox" uid="uid://e2lpfpgt1vwb" path="res://UI/TowerBoxSettings.tres" id="9_o2jkc"]
 [ext_resource type="Texture2D" uid="uid://cietd8ggj5g2u" path="res://graphics/Dwarf.png" id="10_6rr40"]
 [ext_resource type="Texture2D" uid="uid://b45etux7ctnyd" path="res://graphics/shield.png" id="11_agv4w"]
+[ext_resource type="Texture2D" uid="uid://cthlvv3j7y0hu" path="res://graphics/SideButton.png" id="14_2qbci"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qbci"]
+atlas = ExtResource("14_2qbci")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow1yt"]
+atlas = ExtResource("14_2qbci")
+region = Rect2(11, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j5ik"]
+atlas = ExtResource("14_2qbci")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1yd8"]
+atlas = ExtResource("14_2qbci")
+region = Rect2(11, 0, 11, 11)
 
 [node name="UI" type="CanvasLayer" unique_id=1040221054]
 script = ExtResource("1_7tf7v")
@@ -32,14 +49,15 @@ theme_override_constants/separation = 40
 
 [node name="Money" type="PanelContainer" parent="TopLeft/HBoxContainer" unique_id=1910768209]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TopLeft/HBoxContainer/Money" unique_id=1001651574]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="TopLeft/HBoxContainer/Money/VBoxContainer" unique_id=789615730]
 layout_mode = 2
-theme = ExtResource("1_jn5r1")
 text = "Money"
+label_settings = ExtResource("3_2qbci")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopLeft/HBoxContainer/Money/VBoxContainer" unique_id=24625145]
 layout_mode = 2
@@ -49,6 +67,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "0000"
+label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="TopLeft/HBoxContainer/Money/VBoxContainer/HBoxContainer" unique_id=264101821]
 custom_minimum_size = Vector2(30, 30)
@@ -58,6 +77,7 @@ stretch_mode = 5
 
 [node name="Heart" type="PanelContainer" parent="TopLeft/HBoxContainer" unique_id=947201029]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="HeartHolder" type="HBoxContainer" parent="TopLeft/HBoxContainer/Heart" unique_id=594552398]
 unique_name_in_owner = true
@@ -66,11 +86,7 @@ layout_mode = 2
 [node name="HeartI" parent="TopLeft/HBoxContainer/Heart/HeartHolder" unique_id=459077264 instance=ExtResource("4_506dq")]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="TopLeft/HBoxContainer" unique_id=1892711732]
-layout_mode = 2
-
 [node name="SideHidden" type="Control" parent="." unique_id=2052801401]
-visible = false
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -98,13 +114,13 @@ grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(-4, -4)
 keep_pressed_outside = true
-texture_normal = ExtResource("4_ypjvj")
-texture_pressed = ExtResource("4_ypjvj")
-texture_hover = ExtResource("5_u1wp5")
+texture_normal = SubResource("AtlasTexture_2qbci")
+texture_hover = SubResource("AtlasTexture_ow1yt")
 ignore_texture_size = true
 stretch_mode = 3
 
 [node name="SideVisible" type="Control" parent="." unique_id=640541099]
+visible = false
 layout_mode = 3
 anchor_left = 0.795
 anchor_right = 1.0
@@ -120,7 +136,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.780392, 0.552941, 0.364706, 0.545098)
+color = Color(0.23137255, 0, 0.12156863, 0.60784316)
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible" unique_id=1643845168]
 layout_mode = 0
@@ -144,7 +160,7 @@ alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1" unique_id=558554588]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("7_k2p31")
+theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer" unique_id=960816559]
 layout_mode = 2
@@ -164,7 +180,7 @@ stretch_mode = 5
 
 [node name="PanelContainer2" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1" unique_id=2055909593]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("7_k2p31")
+theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer2" unique_id=731833980]
 layout_mode = 2
@@ -190,6 +206,7 @@ theme_override_constants/margin_right = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer" unique_id=863675461]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer" unique_id=692309900]
 layout_mode = 2
@@ -206,6 +223,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "30"
+label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1196170848]
 custom_minimum_size = Vector2(30, 30)
@@ -219,6 +237,7 @@ theme_override_constants/margin_left = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2" unique_id=1357252395]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer" unique_id=2136452495]
 layout_mode = 2
@@ -235,6 +254,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "45"
+label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=997261315]
 custom_minimum_size = Vector2(30, 30)
@@ -248,7 +268,7 @@ alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2" unique_id=1583918526]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("7_k2p31")
+theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer" unique_id=224730961]
 layout_mode = 2
@@ -266,7 +286,7 @@ stretch_mode = 5
 
 [node name="PanelContainer2" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2" unique_id=1518544308]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("7_k2p31")
+theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer2" unique_id=1534345241]
 layout_mode = 2
@@ -292,6 +312,7 @@ theme_override_constants/margin_right = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer" unique_id=1301820238]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer" unique_id=512765056]
 layout_mode = 2
@@ -308,6 +329,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "45"
+label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1536076045]
 custom_minimum_size = Vector2(30, 30)
@@ -321,6 +343,7 @@ theme_override_constants/margin_left = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2" unique_id=1261721758]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer" unique_id=398285947]
 layout_mode = 2
@@ -337,6 +360,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_jn5r1")
 text = "15"
+label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=63293919]
 custom_minimum_size = Vector2(30, 30)
@@ -367,9 +391,8 @@ grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(-4, -4)
 keep_pressed_outside = true
-texture_normal = ExtResource("4_ypjvj")
-texture_pressed = ExtResource("4_ypjvj")
-texture_hover = ExtResource("5_u1wp5")
+texture_normal = SubResource("AtlasTexture_7j5ik")
+texture_hover = SubResource("AtlasTexture_i1yd8")
 ignore_texture_size = true
 stretch_mode = 3
 flip_h = true
