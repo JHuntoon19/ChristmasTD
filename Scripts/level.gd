@@ -6,11 +6,17 @@ var CCScene : PackedScene = preload("res://Projectiles/candy_cane.tscn")
 var CaScene : PackedScene = preload("res://Projectiles/carrot.tscn")
 #Snowball scene
 var snowBallScene : PackedScene = preload("res://Projectiles/snowball.tscn")
+#Resource Scene
+var res : PackedScene = preload("res://LevelFurniture/resource.tscn")
+#Tree Scene
+var treeScene : PackedScene = preload("res://LevelFurniture/tree.tscn")
+@onready var tree_spawns: Node2D = $TreeSpawns
 @onready var sled: Sled = $End/Sled
 @onready var projectiles : Node2D = $Projectiles
+@onready var resources: Node2D = $Resources
 @onready var ui = $UI
 var money : int = 0
-var monsterCount : int = 5
+var monsterCount : int = 50
 @onready var monster_path: Path2D = $Enemies/MonsterPath
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var spawn: AudioStreamPlayer2D = $UFO/Spawn
@@ -18,6 +24,8 @@ func _ready():
 	#Sets basic default global values
 	Global.money += 1000
 	Global.heartUpdate.emit(Global.santaHeart)
+	Global.resources += 1500
+	spawnTree(Vector2.ZERO)
 	startLevel()
 func startLevel() -> void:
 	$UFO/AnimationPlayer.play("StartLevel")
@@ -43,6 +51,19 @@ func spawnEnemies():
 		#Pauses loop so the monster spawn 1 second apart
 		spawn_timer.start()
 		await spawn_timer.timeout
+#Spawns 1 tree at a time
+func spawnTree(position : Vector2):
+	var treeCount : int = tree_spawns.get_child_count()
+	var treeNum : int = randi_range(0,treeCount - 1)
+	var treeMarker : Marker2D = tree_spawns.get_child(treeNum)
+	#If the marker is in the same position as the last tree we get a different marker
+	while treeMarker.position == position:
+		treeNum = randi_range(0,treeCount - 1)
+		treeMarker = tree_spawns.get_child(treeNum)
+	var tree : ChristmasTree = treeScene.instantiate()
+	tree.position = treeMarker.position
+	tree.connect("deadTree",deadTree)
+	$Trees.call_deferred("add_child",tree)
 #When enemy reaches beging of path with a present it addes it to the monster sled
 func begined(enemy : Enemy) -> void:
 	if(enemy.presentHolder):
@@ -67,44 +88,49 @@ func ended(enemy : Enemy) -> void:
 #When elf wants to attack
 #The tower and enemy are their positions
 func elfTowerAttack(tower : Vector2, direction : Vector2, projSpeed : int) -> void:
-#	Instantiates a candy cane and gives it the correct position directio and speed
-	var CC : Projectile = CCScene.instantiate()
-	CC.position = tower
-	CC.direction = direction
-	CC.rotation = direction.angle()
-	CC.speed *= projSpeed
-	projectiles.call_deferred("add_child",CC)
-
+	if Global.resources > Global.elfRes:
+		Global.resources -= Global.elfRes
+		#Instantiates a candy cane and gives it the correct position directio and speed
+		var CC : Projectile = CCScene.instantiate()
+		CC.position = tower
+		CC.direction = direction
+		CC.rotation = direction.angle()
+		CC.speed *= projSpeed
+		projectiles.call_deferred("add_child",CC)
 #When the snowman wants to attack
 func snowmanAttack(tower : Tower, projNum : int, projSpeed : int, attackDir : Vector2) -> void:
-#	Ang splits up 60 degrees into even parts. This angle will be continually added
-	var ang : float = PI / 3 / (projNum)
-	#angle to attack in
-	var attackAngle = attackDir.angle()
-	#We need to offset so that the middle projectile is in line with attack angle
-	var starterAngle = attackAngle - (((projNum - 1) / 2) * ang)
-#	Repeats for the given amount of times
-	for n : int in range(projNum):
-#		Creates a carrot with the correct position and direction
-		var Ca : Projectile = CaScene.instantiate()
-#		add bits of the full angle to the starting angle
-		var rotationAngle : float = starterAngle + ang * n
-#		Trig to find the x and y values of the carrot's direction
-		var direction : Vector2 = Vector2 (cos(rotationAngle), sin(rotationAngle))
-		#Sets carrot on right path with right speed
-		Ca.rotation = rotationAngle
-		Ca.direction = direction
-		Ca.position = tower.position
-		Ca.speed *= projSpeed
-		projectiles.call_deferred("add_child", Ca)
+	if Global.resources > Global.snowRes:
+		Global.resources -= Global.snowRes
+		#Ang splits up 60 degrees into even parts. This angle will be continually added
+		var ang : float = PI / 3 / (projNum)
+		#angle to attack in
+		var attackAngle = attackDir.angle()
+		#We need to offset so that the middle projectile is in line with attack angle
+		var starterAngle = attackAngle - (((projNum - 1) / 2) * ang)
+	#	Repeats for the given amount of times
+		for n : int in range(projNum):
+	#		Creates a carrot with the correct position and direction
+			var Ca : Projectile = CaScene.instantiate()
+	#		add bits of the full angle to the starting angle
+			var rotationAngle : float = starterAngle + ang * n
+	#		Trig to find the x and y values of the carrot's direction
+			var direction : Vector2 = Vector2 (cos(rotationAngle), sin(rotationAngle))
+			#Sets carrot on right path with right speed
+			Ca.rotation = rotationAngle
+			Ca.direction = direction
+			Ca.position = tower.position
+			Ca.speed *= projSpeed
+			projectiles.call_deferred("add_child", Ca)
 func gnomeAttack(position : Vector2, attackDir : Vector2, rotateSpeed : float, size : float):
-	#	Instantiates a pckaxe and gives it the correct position and direction
-	var PA : PickAxe = preload("res://Projectiles/pickaxe.tscn").instantiate()
-	PA.position = position
-	PA.direction = attackDir
-	PA.rotateSpeed = rotateSpeed
-	PA.scale = Vector2(size,size)
-	projectiles.call_deferred("add_child",PA)
+	if Global.resources > Global.gnomeRes:
+		Global.resources -= Global.gnomeRes
+		#	Instantiates a pckaxe and gives it the correct position and direction
+		var PA : PickAxe = preload("res://Projectiles/pickaxe.tscn").instantiate()
+		PA.position = position
+		PA.direction = attackDir
+		PA.rotateSpeed = rotateSpeed
+		PA.scale = Vector2(size,size)
+		projectiles.call_deferred("add_child",PA)
 #removes enemy and updates the money
 func deadEnemy(enemy : Enemy, presentHolder : bool):
 	#If the enemy is holding a present it has to drop it
@@ -119,7 +145,6 @@ func deadEnemy(enemy : Enemy, presentHolder : bool):
 	Global.money += 15
 	if(monsterCount == 0):
 		get_tree().change_scene_to_file("res://Levels/transition.tscn")
-
 #Creates a dummy elf tower to follow the mouse
 #Connects the appropiate signal
 func _on_ui_elf_tower_clicked():
@@ -157,12 +182,10 @@ func _on_ui_snow_tower_clicked():
 	var snowDummy : TowerDummy = preload("res://UI/snow_dummy.tscn").instantiate()
 	call_deferred("add_child", snowDummy)
 	snowDummy.connect("placeTower",placeTower)
-
 func _on_ui_gnome_tower_clicked() -> void:
 	var gnomeDummy : TowerDummy = preload("res://UI/gnome_dummy.tscn").instantiate()
 	call_deferred("add_child",gnomeDummy)
 	gnomeDummy.connect("placeTower",placeTower)
-
 #Position of Santa and the Pos of the enemy
 #Shoots a snowball at the enemy
 func _on_santa_santa_attack(position: Vector2, enemy: Vector2) -> void:
@@ -170,14 +193,11 @@ func _on_santa_santa_attack(position: Vector2, enemy: Vector2) -> void:
 	snowball.position = position
 	snowball.direction = Vector2(enemy - position).normalized()
 	$Projectiles.call_deferred("add_child",snowball)
-
 #Creates a shiled dummy to follow mouse
 func _on_ui_shield_tower_clicked() -> void:
 	var shieldDummy : TowerDummy = preload("res://UI/shield_dummy.tscn").instantiate()
 	call_deferred("add_child", shieldDummy)
 	shieldDummy.connect("placeTower", placeTower)
-
-
 func _on_sled_present_added() -> void:
 	#Stores the scene of the present image
 	var presenti = preload("res://End/present_i.tscn").instantiate()
@@ -189,3 +209,12 @@ func _on_sled_present_added() -> void:
 	var santa : Santa = $Santa
 	santa.presentHolder = false
 	santa.get_child(-1).queue_free()
+#Called when a tree is fully dies
+func deadTree(position : Vector2):
+	spawnTree(position)
+	dropResource(position)
+#Create a resource where a tree used to be
+func dropResource(position : Vector2):
+	var resObj : ChristamsResource = res.instantiate()
+	resObj.position = position
+	resources.call_deferred("add_child",resObj)

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://uw6npmti1byy"]
+
+[ext_resource type="Script" uid="uid://cwhj4q080ts8u" path="res://Scripts/ufo.gd" id="1_iu6li"]
+[ext_resource type="Texture2D" uid="uid://blew1fevtyr3w" path="res://graphics/UFO.png" id="1_pb2hh"]
+[ext_resource type="PackedScene" uid="uid://c8yvddhank7yt" path="res://Projectiles/laser_node.tscn" id="3_puyu0"]
+
+[node name="UFO" type="Node2D" unique_id=1595061385]
+script = ExtResource("1_iu6li")
+minLaserTime = 4.0
+maxLaserTime = 9.0
+
+[node name="Laser" parent="." unique_id=1573240953 instance=ExtResource("3_puyu0")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=633677296]
+position = Vector2(0, -9)
+texture = ExtResource("1_pb2hh")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=151281050]
+one_shot = true
+
+[node name="UntilFireTimer" type="Timer" parent="." unique_id=1759687250]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="ShowTimer" type="Timer" parent="." unique_id=2012222254]
+one_shot = true
+
+[node name="whiteTimer" type="Timer" parent="." unique_id=1525390694]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
+[connection signal="timeout" from="UntilFireTimer" to="." method="_on_until_fire_timer_timeout"]
+[connection signal="timeout" from="ShowTimer" to="." method="_on_show_timer_timeout"]
+[connection signal="timeout" from="whiteTimer" to="." method="_on_white_timer_timeout"]

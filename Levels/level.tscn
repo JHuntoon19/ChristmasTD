@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dhhtkrydgdcn3" path="res://End/m_sled.tscn" id="8_ckyel"]
 [ext_resource type="PackedScene" uid="uid://bghphq8lsdnu6" path="res://End/sled.tscn" id="8_h6nh7"]
 [ext_resource type="AudioStream" uid="uid://88kjgwdymywv" path="res://Audio/UFO.mp3" id="8_nt2xh"]
-[ext_resource type="Texture2D" uid="uid://blew1fevtyr3w" path="res://graphics/UFO.png" id="8_vx8ih"]
+[ext_resource type="PackedScene" uid="uid://uw6npmti1byy" path="res://LevelFurniture/ufo.tscn" id="9_eabcg"]
 [ext_resource type="AudioStream" uid="uid://cd8cwefp7xves" path="res://Audio/Spawn.mp3" id="9_o881l"]
 
-[sub_resource type="Curve2D" id="Curve2D_b48rc"]
+[sub_resource type="Curve2D" id="Curve2D_o2jkc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 486, 315, 0, 0, 0, 0, 705, 316, 0, 0, 0, 0, 704, 367, 0, 0, 0, 0, 628, 368, 0, 0, 0, 0, 627, 420, 0, 0, 0, 0, 790, 423)
+"points": PackedVector2Array(0, 0, 0, 0, 8, 45, 0, 0, 0, 0, 225, 44, 0, 0, 0, 0, 224, 97, 0, 0, 0, 0, 147, 98, 0, 0, 0, 0, 147, 152, 0, 0, 0, 0, 311, 152)
 }
 point_count = 6
 
@@ -43,10 +43,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 1, 1.33333, 1.53333, 1.73333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.98, 1.52, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 2,
-"values": [Vector2(822, 270), Vector2(785, 314), Vector2(734, 331), Vector2(705, 290), Vector2(645, 283), Vector2(630, 323), Vector2(571, 347), Vector2(558, 305), Vector2(496, 291.045)]
+"values": [Vector2(295, -9), Vector2(232, 65), Vector2(172, 24), Vector2(107, 119), Vector2(15, 32)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -75,42 +75,68 @@ script = ExtResource("1_1rrgu")
 [node name="UI" parent="." unique_id=1374120031 instance=ExtResource("2_gg7t5")]
 
 [node name="Background" type="Node2D" parent="." unique_id=1146940956]
-position = Vector2(640, 360)
+position = Vector2(160, 90)
 
 [node name="BImage" type="Sprite2D" parent="Background" unique_id=674797506]
+z_index = -1
 texture = ExtResource("3_vx8ih")
 
 [node name="TowerPlatforms" type="Node2D" parent="." unique_id=644664676]
 
 [node name="BuildPlatform" parent="TowerPlatforms" unique_id=505525479 instance=ExtResource("4_vx8ih")]
-position = Vector2(511, 440)
+position = Vector2(21, 170)
 
 [node name="BuildPlatform2" parent="TowerPlatforms" unique_id=2079660566 instance=ExtResource("4_vx8ih")]
-position = Vector2(568, 440)
+position = Vector2(89, 170)
 
 [node name="BuildPlatform3" parent="TowerPlatforms" unique_id=2084001763 instance=ExtResource("4_vx8ih")]
-position = Vector2(634, 440)
+position = Vector2(157, 170)
 
 [node name="BuildPlatform6" parent="TowerPlatforms" unique_id=1823654835 instance=ExtResource("4_vx8ih")]
-position = Vector2(696, 287)
+position = Vector2(218, 18)
 
 [node name="BuildPlatform4" parent="TowerPlatforms" unique_id=739112201 instance=ExtResource("4_vx8ih")]
-position = Vector2(773, 392)
+position = Vector2(294, 122)
 rotation = 1.5707964
 
 [node name="BuildPlatform5" parent="TowerPlatforms" unique_id=1178082042 instance=ExtResource("4_vx8ih")]
-position = Vector2(495, 342)
+position = Vector2(17, 76)
 rotation = 1.5707964
 
+[node name="TreeSpawns" type="Node2D" parent="." unique_id=470510517]
+position = Vector2(-480, -270)
+
+[node name="Marker2D" type="Marker2D" parent="TreeSpawns" unique_id=1015413332]
+position = Vector2(634, 341)
+
+[node name="Marker2D2" type="Marker2D" parent="TreeSpawns" unique_id=103595099]
+position = Vector2(667, 395)
+
+[node name="Marker2D3" type="Marker2D" parent="TreeSpawns" unique_id=60674788]
+position = Vector2(539, 397)
+
+[node name="Marker2D4" type="Marker2D" parent="TreeSpawns" unique_id=311675076]
+position = Vector2(732, 342)
+
+[node name="Marker2D6" type="Marker2D" parent="TreeSpawns" unique_id=583018187]
+position = Vector2(569, 341)
+
+[node name="Marker2D7" type="Marker2D" parent="TreeSpawns" unique_id=2100333507]
+position = Vector2(601, 425)
+
+[node name="Trees" type="Node2D" parent="." unique_id=2116861397]
+position = Vector2(-480, -270)
+
+[node name="Resources" type="Node2D" parent="." unique_id=672751737]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1209990763]
-position = Vector2(640, 360)
-zoom = Vector2(4, 4)
+position = Vector2(160, 90)
 process_callback = 0
 
 [node name="Enemies" type="Node2D" parent="." unique_id=576144303]
 
 [node name="MonsterPath" type="Path2D" parent="Enemies" unique_id=25828518]
-curve = SubResource("Curve2D_b48rc")
+curve = SubResource("Curve2D_o2jkc")
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=1119354175]
 
@@ -119,16 +145,17 @@ curve = SubResource("Curve2D_b48rc")
 [node name="Path" type="Node2D" parent="." unique_id=1346027708]
 
 [node name="PathHitbox" type="Area2D" parent="Path" unique_id=2063745993]
+visible = false
 collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path/PathHitbox" unique_id=379003081]
-polygon = PackedVector2Array(481, 308, 481, 323, 696, 323, 697, 360, 621, 361, 622, 427, 800, 430, 799, 416, 634, 416, 633, 373, 711, 375, 713, 309)
+polygon = PackedVector2Array(232, 37, 232, 104, 156, 104, 155, 145, 319, 144, 319, 159, 141, 160, 141, 90, 217, 89, 215, 52, 1, 53, 1, 36)
 
 [node name="Santa" parent="." unique_id=965313116 instance=ExtResource("6_3rcyo")]
-position = Vector2(674, 340)
+position = Vector2(194, 70)
 
 [node name="End" type="Node2D" parent="." unique_id=1413450805]
-position = Vector2(769, 419)
+position = Vector2(289, 149)
 
 [node name="Sled" parent="End" unique_id=537659660 instance=ExtResource("8_h6nh7")]
 position = Vector2(21, 3.0000029)
@@ -138,20 +165,19 @@ position = Vector2(-279, -105.000015)
 
 [node name="OpenPresents" type="Node2D" parent="." unique_id=200810375]
 
-[node name="UFO" type="Node2D" parent="." unique_id=1866226241]
+[node name="UFO" parent="." unique_id=1595061385 instance=ExtResource("9_eabcg")]
 position = Vector2(822, 270)
-
-[node name="UImage" type="Sprite2D" parent="UFO" unique_id=512673409]
-texture = ExtResource("8_vx8ih")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UFO" unique_id=1698472419]
 libraries/ = SubResource("AnimationLibrary_2nrs8")
 
 [node name="UFOSound" type="AudioStreamPlayer2D" parent="UFO" unique_id=1317147217]
+position = Vector2(290, -26)
 stream = ExtResource("8_nt2xh")
 autoplay = true
 
 [node name="Spawn" type="AudioStreamPlayer2D" parent="UFO" unique_id=676581711]
+position = Vector2(290, -26)
 stream = ExtResource("9_o881l")
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1541142472]

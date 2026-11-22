@@ -1,6 +1,7 @@
 extends Node
 signal moneyChanged(amount : String)
 signal heartUpdate(heartNum : int)
+signal resourceUpdate(resources : int)
 #Keeps track of the amount of money the player has
 #When the money is updated it alerts the UI
 var money : int = 0:
@@ -9,6 +10,12 @@ var money : int = 0:
 	set(value):
 		money = value
 		moneyChanged.emit(str(money))
+var resources : int = 0:
+	get:
+		return resources
+	set(value):
+		resources = value
+		resourceUpdate.emit(str(resources))
 #Keeps track of presents in the sled
 var presentNum : int = 5
 #Keeps track of presents in the monsters sled
@@ -20,13 +27,18 @@ var santaHeart : int = 4:
 	set(value):
 		santaHeart = max(value, 0)
 		heartUpdate.emit(santaHeart)
+#Keeps track of santas position always
+var santaPos : Vector2
 enum TowerType{ELF,SNOW,GNOME,SHIELD}
 var elfLevel : int = 0
 var elfCost : int = 30
+var elfRes : int = 1
 var snowLevel : int = 0
 var snowCost : int = 45
+var snowRes : int = 5
 var gnomeLevel : int = 0
 var gnomeCost : int = 45
+var gnomeRes : int = 7
 var shieldLevel : int = 0
 var shieldCost : int = 15
 var santaLevel : int = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhwigfr68yyej"
-path="res://.godot/imported/monster2.png-77590ff4fd304eddc38f8c5d17d9328e.ctex"
+uid="uid://25dit0xcpm2"
+path="res://.godot/imported/arrow1.png-9e9cc85f5d13a9a69914e4dd30ba8466.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/monster2.png"
-dest_files=["res://.godot/imported/monster2.png-77590ff4fd304eddc38f8c5d17d9328e.ctex"]
+source_file="res://OldishArt/arrow1.png"
+dest_files=["res://.godot/imported/arrow1.png-9e9cc85f5d13a9a69914e4dd30ba8466.ctex"]
 
 [params]
 

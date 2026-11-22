@@ -1,5 +1,6 @@
 extends CanvasLayer
-@onready var money_text = %MoneyText
+@onready var money_text: Label = %MoneyText
+@onready var resource_text: Label = %ResourceText
 signal elfTowerClicked()
 signal snowTowerClicked()
 signal gnomeTowerClicked()
@@ -16,6 +17,12 @@ func _ready():
 	#Connects the global signals
 	Global.connect("moneyChanged",updateMoneyText)
 	Global.connect("heartUpdate", updateHearts)
+	Global.connect("resourceUpdate",updateResourceText)
+#Keeps the resources amount to 4 digits
+func updateResourceText(amount: String) -> void:
+	var rText = "0000" + amount
+	rText = rText.substr(rText.length() - 4)
+	resource_text.text = rText
 #Keeps the money amount to 4 digits
 func updateMoneyText(amount : String) -> void:
 	var mText = "0000" + amount

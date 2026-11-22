@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buihyyrvu2f30"
-path="res://.godot/imported/Santa-Sheet.png-19933912bb33265ed78a874f380f6337.ctex"
+uid="uid://btu8d2xarknly"
+path="res://.godot/imported/gnome.png-e4f560d6837e25fa48c67ce39379ff32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Santa-Sheet.png"
-dest_files=["res://.godot/imported/Santa-Sheet.png-19933912bb33265ed78a874f380f6337.ctex"]
+source_file="res://OldishArt/gnome.png"
+dest_files=["res://.godot/imported/gnome.png-e4f560d6837e25fa48c67ce39379ff32.ctex"]
 
 [params]
 

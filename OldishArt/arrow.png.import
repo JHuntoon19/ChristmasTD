@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxwcet2fo4f6n"
-path="res://.godot/imported/pickaxe.png-950963c87e9f18f094efbbd982f3aeff.ctex"
+uid="uid://dkj2m23da4ws7"
+path="res://.godot/imported/arrow.png-982137483dc4b082008409ab7143f8f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/pickaxe.png"
-dest_files=["res://.godot/imported/pickaxe.png-950963c87e9f18f094efbbd982f3aeff.ctex"]
+source_file="res://OldishArt/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-982137483dc4b082008409ab7143f8f2.ctex"]
 
 [params]
 

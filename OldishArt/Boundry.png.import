@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c36pyavtjdh0r"
-path="res://.godot/imported/Boundry.png-bb41e3385964e1f8ca003e9dd36e0fec.ctex"
+path="res://.godot/imported/Boundry.png-c7518197b9a87db0990941d85d855ffc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Boundry.png"
-dest_files=["res://.godot/imported/Boundry.png-bb41e3385964e1f8ca003e9dd36e0fec.ctex"]
+source_file="res://OldishArt/Boundry.png"
+dest_files=["res://.godot/imported/Boundry.png-c7518197b9a87db0990941d85d855ffc.ctex"]
 
 [params]
 

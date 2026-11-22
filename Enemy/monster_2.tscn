@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cqx788f7m1dki" path="res://Enemy/Enemy.tscn" id="1_lipni"]
 [ext_resource type="Script" uid="uid://bhp1qljhjv5ye" path="res://Scripts/monster_2.gd" id="2_1yoht"]
-[ext_resource type="Texture2D" uid="uid://dsq3wiob2hhl3" path="res://graphics/Monster2.png" id="3_gpyi8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lesr4"]
+load_path = "res://.godot/imported/Monster2.png-cb5327e9b42e3070666a850e12c65fac.ctex"
 
 [sub_resource type="Animation" id="Animation_j2vq3"]
 resource_name = "Crawl"
@@ -81,7 +83,7 @@ speed = 0.07
 health = 5
 
 [node name="EImage" parent="Hitbox" parent_id_path=PackedInt32Array(736583290) index="0" unique_id=951839348]
-texture = ExtResource("3_gpyi8")
+texture = SubResource("CompressedTexture2D_lesr4")
 hframes = 7
 vframes = 3
 frame = 7

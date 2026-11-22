@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://dfq22h6mcuxsb" path="res://UI/BoxSettings.tres" id="2_o2jkc"]
 [ext_resource type="LabelSettings" uid="uid://b2x0r5rluk0vh" path="res://UI/TextLabelSettings.tres" id="3_2qbci"]
 [ext_resource type="PackedScene" uid="uid://btdf2eehxooux" path="res://UI/heart_i.tscn" id="4_506dq"]
+[ext_resource type="Texture2D" uid="uid://b2y4afmxkqosb" path="res://graphics/Resource.png" id="6_o2jkc"]
 [ext_resource type="Texture2D" uid="uid://b6w05rgnuuhrr" path="res://graphics/ElfTower.png" id="8_6rr40"]
 [ext_resource type="Texture2D" uid="uid://uqpemj43di7y" path="res://graphics/SnowMan.png" id="9_6rr40"]
 [ext_resource type="StyleBox" uid="uid://e2lpfpgt1vwb" path="res://UI/TowerBoxSettings.tres" id="9_o2jkc"]
@@ -21,6 +22,10 @@ region = Rect2(0, 0, 11, 11)
 atlas = ExtResource("14_2qbci")
 region = Rect2(11, 0, 11, 11)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2jkc"]
+atlas = ExtResource("11_agv4w")
+region = Rect2(8, 205, 10, 15)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7j5ik"]
 atlas = ExtResource("14_2qbci")
 region = Rect2(0, 0, 11, 11)
@@ -35,17 +40,15 @@ script = ExtResource("1_7tf7v")
 [node name="TopLeft" type="Control" parent="." unique_id=88802675]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopLeft" unique_id=1112839467]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 9.502
 anchor_bottom = 1.892
-offset_right = -340.08
-offset_bottom = -35.68
-theme_override_constants/separation = 40
+offset_right = -209.07999
+offset_bottom = -54.68
+theme_override_constants/separation = 6
 
 [node name="Money" type="PanelContainer" parent="TopLeft/HBoxContainer" unique_id=1910768209]
 layout_mode = 2
@@ -53,6 +56,7 @@ theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TopLeft/HBoxContainer/Money" unique_id=1001651574]
 layout_mode = 2
+theme_override_constants/separation = 1
 
 [node name="Label" type="Label" parent="TopLeft/HBoxContainer/Money/VBoxContainer" unique_id=789615730]
 layout_mode = 2
@@ -61,6 +65,7 @@ label_settings = ExtResource("3_2qbci")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopLeft/HBoxContainer/Money/VBoxContainer" unique_id=24625145]
 layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="MoneyText" type="Label" parent="TopLeft/HBoxContainer/Money/VBoxContainer/HBoxContainer" unique_id=142623764]
 unique_name_in_owner = true
@@ -70,13 +75,44 @@ text = "0000"
 label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="TopLeft/HBoxContainer/Money/VBoxContainer/HBoxContainer" unique_id=264101821]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(5, 4.685)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
+[node name="Resources" type="PanelContainer" parent="TopLeft/HBoxContainer" unique_id=1009803751]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_o2jkc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopLeft/HBoxContainer/Resources" unique_id=1512909246]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="TopLeft/HBoxContainer/Resources/VBoxContainer" unique_id=96521575]
+layout_mode = 2
+text = "Resources"
+label_settings = ExtResource("3_2qbci")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopLeft/HBoxContainer/Resources/VBoxContainer" unique_id=1059485677]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ResourceText" type="Label" parent="TopLeft/HBoxContainer/Resources/VBoxContainer/HBoxContainer" unique_id=536044814]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_jn5r1")
+text = "0000"
+label_settings = ExtResource("3_2qbci")
+
+[node name="TextureRect" type="TextureRect" parent="TopLeft/HBoxContainer/Resources/VBoxContainer/HBoxContainer" unique_id=285423322]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+texture = ExtResource("6_o2jkc")
+stretch_mode = 5
+
 [node name="Heart" type="PanelContainer" parent="TopLeft/HBoxContainer" unique_id=947201029]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="HeartHolder" type="HBoxContainer" parent="TopLeft/HBoxContainer/Heart" unique_id=594552398]
@@ -88,39 +124,34 @@ layout_mode = 2
 
 [node name="SideHidden" type="Control" parent="." unique_id=2052801401]
 layout_mode = 3
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchor_left = 0.96900004
+anchor_top = 0.47900003
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_bottom = 20.0
+anchor_bottom = 0.527
+offset_left = 5.11499
+offset_top = 3.7799911
+offset_right = -4.8049927
+offset_bottom = -4.8600006
 grow_horizontal = 0
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="ShowSideButton" type="TextureButton" parent="SideHidden" unique_id=1545885970]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 5.18982
-offset_top = 25.7845
-offset_right = 19.1898
-offset_bottom = 38.7845
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(-4, -4)
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
 keep_pressed_outside = true
 texture_normal = SubResource("AtlasTexture_2qbci")
 texture_hover = SubResource("AtlasTexture_ow1yt")
 ignore_texture_size = true
 stretch_mode = 3
+flip_h = true
 
 [node name="SideVisible" type="Control" parent="." unique_id=640541099]
-visible = false
 layout_mode = 3
 anchor_left = 0.795
 anchor_right = 1.0
@@ -136,26 +167,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.23137255, 0, 0.12156863, 0.60784316)
+color = Color(0.23137255, 0, 0.12156863, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible" unique_id=1643845168]
 layout_mode = 0
-offset_right = 262.0
-offset_bottom = 100.0
+offset_right = 66.0
+offset_bottom = 138.0
 mouse_filter = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SideVisible/MarginContainer" unique_id=371784895]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 2
 
 [node name="Row1" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=1670473360]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1" unique_id=558554588]
@@ -164,14 +197,14 @@ theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer" unique_id=960816559]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="ElfTowerButton" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer/MarginContainer" unique_id=163711866]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -184,25 +217,25 @@ theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer2" unique_id=731833980]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="SnowmanTower" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer2/MarginContainer" unique_id=659733988]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture_normal = ExtResource("9_6rr40")
 stretch_mode = 5
 
 [node name="Row1Money" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=1371913977]
 layout_mode = 2
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money" unique_id=1070619236]
 layout_mode = 2
-theme_override_constants/margin_right = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer" unique_id=863675461]
 layout_mode = 2
@@ -210,13 +243,14 @@ theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer" unique_id=692309900]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer" unique_id=1258038686]
 layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="ElfCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1674509318]
 unique_name_in_owner = true
@@ -226,14 +260,13 @@ text = "30"
 label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1196170848]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money" unique_id=1201888372]
 layout_mode = 2
-theme_override_constants/margin_left = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2" unique_id=1357252395]
 layout_mode = 2
@@ -241,13 +274,14 @@ theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer" unique_id=2136452495]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer" unique_id=958726936]
 layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="SnowCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=1598312078]
 unique_name_in_owner = true
@@ -257,13 +291,14 @@ text = "45"
 label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=997261315]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
 [node name="Row2" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=698150736]
 layout_mode = 2
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2" unique_id=1583918526]
@@ -272,14 +307,14 @@ theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer" unique_id=224730961]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="gnome" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer/MarginContainer" unique_id=826350666]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture_normal = ExtResource("10_6rr40")
 stretch_mode = 5
@@ -290,25 +325,25 @@ theme_override_styles/panel = ExtResource("9_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer2" unique_id=1534345241]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="Shield" type="TextureButton" parent="SideVisible/MarginContainer/VBoxContainer/Row2/PanelContainer2/MarginContainer" unique_id=1285345642]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
-texture_normal = ExtResource("11_agv4w")
+texture_normal = SubResource("AtlasTexture_o2jkc")
 stretch_mode = 5
 
 [node name="Row1Money2" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer" unique_id=1845839136]
 layout_mode = 2
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2" unique_id=2118880558]
 layout_mode = 2
-theme_override_constants/margin_right = 7
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer" unique_id=1301820238]
 layout_mode = 2
@@ -316,13 +351,14 @@ theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer" unique_id=512765056]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer" unique_id=1195158264]
 layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="GnomeCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1165938720]
 unique_name_in_owner = true
@@ -332,14 +368,14 @@ text = "45"
 label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1536076045]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2" unique_id=366757458]
 layout_mode = 2
-theme_override_constants/margin_left = 7
+theme_override_constants/margin_left = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2" unique_id=1261721758]
 layout_mode = 2
@@ -347,13 +383,14 @@ theme_override_styles/panel = ExtResource("2_o2jkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer" unique_id=398285947]
 layout_mode = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer" unique_id=433229153]
 layout_mode = 2
+theme_override_constants/separation = 2
 
 [node name="ShieldCostLabel" type="Label" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=1394702845]
 unique_name_in_owner = true
@@ -363,7 +400,7 @@ text = "15"
 label_settings = ExtResource("3_2qbci")
 
 [node name="TextureRect" type="TextureRect" parent="SideVisible/MarginContainer/VBoxContainer/Row1Money2/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer" unique_id=63293919]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(5, 5)
 layout_mode = 2
 texture = ExtResource("2_l35t8")
 stretch_mode = 5
@@ -383,19 +420,16 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 5.0
-offset_top = 26.0
-offset_right = 16.0
-offset_bottom = 39.0
+offset_left = -10.0
+offset_top = -5.0
+offset_bottom = 5.0
 grow_horizontal = 0
 grow_vertical = 2
-scale = Vector2(-4, -4)
 keep_pressed_outside = true
 texture_normal = SubResource("AtlasTexture_7j5ik")
 texture_hover = SubResource("AtlasTexture_i1yd8")
 ignore_texture_size = true
 stretch_mode = 3
-flip_h = true
 
 [connection signal="pressed" from="SideHidden/ShowSideButton" to="." method="_on_show_side_button_pressed"]
 [connection signal="mouse_entered" from="SideVisible/MarginContainer/VBoxContainer/Row1/PanelContainer/MarginContainer/ElfTowerButton" to="." method="_on_elf_tower_button_mouse_entered"]

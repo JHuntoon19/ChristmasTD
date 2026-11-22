@@ -49,6 +49,8 @@ func _process(delta: float) -> void:
 		velocity *= 5
 	#Moves santa according to velocity
 	move_and_slide()
+	#Updates the global position of santa
+	Global.santaPos = global_position
 	#Rotate range circle
 	$Range/Sprite2D.rotation += 0.3 * delta
 func upgrade() -> void:

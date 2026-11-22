@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl1mcgq0lwmin"
-path="res://.godot/imported/ElfTower1.png-32043a0edd3221fffe24fe8c8348293e.ctex"
+uid="uid://bdljipv22lyly"
+path="res://.godot/imported/Snowman1.png-74628c0da0545f758c6538331d52315d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/ElfTower1.png"
-dest_files=["res://.godot/imported/ElfTower1.png-32043a0edd3221fffe24fe8c8348293e.ctex"]
+source_file="res://OldishArt/Snowman1.png"
+dest_files=["res://.godot/imported/Snowman1.png-74628c0da0545f758c6538331d52315d.ctex"]
 
 [params]
 

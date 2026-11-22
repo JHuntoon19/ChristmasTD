@@ -12,6 +12,10 @@ signal begined(enemy : PathFollow2D)
 
 func _process(delta):
 	progress_ratio += speed * delta
+	if rotation_degrees > 120:
+		$Hitbox/EImage.flip_v = true
+	else:
+		$Hitbox/EImage.flip_v = false
 	#Once the enemy reaches the end of the path it flips around it goes back
 	if(progress_ratio == 1):
 		$Hitbox/EImage.flip_h = true
@@ -26,6 +30,8 @@ func _process(delta):
 		dead.emit(self, presentHolder)
 #Takes damage and calls the method to play hurt animations
 func _on_hitbox_area_entered(area):
+	hurt()
+func hurt():
 	hitAnim()
 	alien_hit.play()
 	health -= 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1daejr07hn4g"
-path="res://.godot/imported/Carrott.png-e390f9a7b07b5a1b1f38cba156d7e66f.ctex"
+uid="uid://buihyyrvu2f30"
+path="res://.godot/imported/Santa-Sheet.png-fdc8ce86d5ec1ef0bdc9841eb28e67de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Carrott.png"
-dest_files=["res://.godot/imported/Carrott.png-e390f9a7b07b5a1b1f38cba156d7e66f.ctex"]
+source_file="res://OldishArt/Santa-Sheet.png"
+dest_files=["res://.godot/imported/Santa-Sheet.png-fdc8ce86d5ec1ef0bdc9841eb28e67de.ctex"]
 
 [params]
 

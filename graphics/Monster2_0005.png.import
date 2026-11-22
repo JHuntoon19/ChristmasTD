@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdljipv22lyly"
-path="res://.godot/imported/Snowman1.png-49e23fbf762cf7a854c518b949d624c6.ctex"
+uid="uid://cxrcudyghcgvf"
+path="res://.godot/imported/Monster2_0005.png-f173511d5c708f905172aa247c05833f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/Snowman1.png"
-dest_files=["res://.godot/imported/Snowman1.png-49e23fbf762cf7a854c518b949d624c6.ctex"]
+source_file="res://graphics/Monster2_0005.png"
+dest_files=["res://.godot/imported/Monster2_0005.png-f173511d5c708f905172aa247c05833f.ctex"]
 
 [params]
 
