@@ -7,19 +7,20 @@
 size = Vector2(10.2616, 15.1838)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_date0"]
-radius = 40.0
+radius = 10.049875
 
 [node name="TowerDummy" type="Node2D" unique_id=1951225458]
 script = ExtResource("1_3pypu")
 
 [node name="RangeCircle" type="Sprite2D" parent="." unique_id=1051247907]
-self_modulate = Color(0.847059, 0.219608, 0.258824, 0.639216)
-scale = Vector2(0.109, 0.108)
+self_modulate = Color(1, 0.26666668, 0.23137255, 1)
+scale = Vector2(0.027359784, 0.027063599)
 texture = ExtResource("2_u5qgn")
 
 [node name="Image" type="Sprite2D" parent="." unique_id=1552578612]
 
 [node name="hitbox" type="Area2D" parent="." unique_id=304094154]
+visible = false
 collision_mask = 1025
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1195037581]
@@ -27,6 +28,7 @@ position = Vector2(0.0309906, 0.00377607)
 shape = SubResource("RectangleShape2D_obh4k")
 
 [node name="range" type="Area2D" parent="." unique_id=158763119]
+visible = false
 collision_layer = 4
 collision_mask = 2
 

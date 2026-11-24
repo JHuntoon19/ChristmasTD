@@ -145,7 +145,6 @@ curve = SubResource("Curve2D_o2jkc")
 [node name="Path" type="Node2D" parent="." unique_id=1346027708]
 
 [node name="PathHitbox" type="Area2D" parent="Path" unique_id=2063745993]
-visible = false
 collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path/PathHitbox" unique_id=379003081]

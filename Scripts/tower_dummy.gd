@@ -6,10 +6,11 @@ signal placeTower(position : Vector2, towerName : String)
 @export var type: Global.TowerType
 var placeable : bool = true
 var onPlatform : bool = false
+var onPath : bool = false
 var inTower : bool = false
 var areas : Array[Area2D] = []
-var circColor : Color = Color("6a6a6a84")
-var unColor : Color = Color("d83842a3")
+var circColor : Color = Color("22ab80")
+var unColor : Color = Color("ff443b")
 @export var cost : int = 0
 @export var tower : PackedScene
 #Makes the range circle the correct size
@@ -23,16 +24,14 @@ func _process(delta):
 	#Checks that the tower is not overlapping any others and on a built platform and that the player has enough money
 	onPlatform = false
 	inTower = false
-	
-	for area :Area2D in areas:
-		#checks if any areas it is colliding with are a platform
-		if area.get_collision_layer_value(11):
-			onPlatform = true
-		#Checks if any areas it is colliding with are a tower
-		if area.get_collision_layer_value(1):
-			inTower = true
-	#Determines if a tower is in a valid position with enough moneey
-	placeable = onPlatform and Global.money >= cost and not inTower
+	onPath = false
+	checkIfPlaceable()
+	attemptPlace()
+	#Removes dummy if User backs out
+	if(Input.is_action_just_pressed("back")):
+		queue_free()
+#Function to see if player wants to place the tower
+func attemptPlace():
 	if(placeable):
 		#If the tower can be places makes the range circle gray
 		$RangeCircle.self_modulate = circColor
@@ -45,9 +44,19 @@ func _process(delta):
 	else:
 		#Makes range circle red when the tower cannot be placed
 		$RangeCircle.self_modulate = unColor
-	#Removes dummy if User backs out
-	if(Input.is_action_just_pressed("back")):
-		queue_free()
+#Function determines if the tower is valid to be placed
+func checkIfPlaceable():
+	for area :Area2D in areas:
+		#checks if any areas it is colliding with are a platform
+		if area.get_collision_layer_value(11):
+			onPlatform = true
+		#Checks if any areas it is colliding with are a tower
+		if area.get_collision_layer_value(1):
+			inTower = true
+		if area.get_collision_layer_value(5):
+			onPath = true
+	#Determines if a tower is in a valid position with enough moneey
+	placeable = onPlatform and Global.money >= cost and not inTower and not onPath
 #Use this when creating tower specific dummys
 func setup() -> void:
 	#Change the tower name and the cost

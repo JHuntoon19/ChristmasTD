@@ -13,7 +13,6 @@ func upgrade():
 		match level:
 			0:
 				attackSpeed = 1.2
-				towerRange = 20
 				projSpeed = 1
 				projAmount =3
 			1:
@@ -23,7 +22,6 @@ func upgrade():
 			2:
 				#Increases range, carrot amount and speed of the carrot
 				projAmount += 2
-				towerRange = 40
 				projSpeed = 1.5
 			3:
 				#Increases carrot amount, attack speed, and the speed of the carrot

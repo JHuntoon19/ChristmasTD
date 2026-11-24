@@ -14,23 +14,19 @@ func upgrade() -> void:
 			0:
 				#default values
 				attackSpeed = 2
-				towerRange = 25
 				rotateSpeed = 1
 				projSize = 1
 			1:
 				#Increaes attack speed, range, and the rotate speed of the pickaxe
 				attackSpeed = 1.5
-				towerRange = 30
 				rotateSpeed = 1.5
 			2:
 				#More upgrades but with a bigger pickaxe
 				attackSpeed = 1
-				towerRange = 35
 				rotateSpeed = 2
 				projSize = 1.5
 			3:
 				#OP upgrades
 				attackSpeed = 0.5
-				towerRange = 40
 				rotateSpeed = 2.5
 				projSize = 2

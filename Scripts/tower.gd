@@ -13,7 +13,7 @@ var canAttack : bool = true
 #Multiplies the speed by this number to increase when tower is leveled up
 var projSpeed : float = 1
 #Holds the range of the tower
-var towerRange : int
+var towerRange : int = 9
 #Shows how fast the tower will attack
 #Automatically changes the timer when updated
 var attackSpeed : float
@@ -46,11 +46,6 @@ func _process(delta) -> void:
 #			Will be changed by the towers themselves
 func attack() -> void:
 	print("attack")
-#Adds and removes enemies from the enems array
-func _on_range_area_entered(area : Area2D) -> void:
-	enems.append(area)
-func _on_range_area_exited(area : Area2D) -> void:
-	enems.erase(area)
 func _on_attack_delay_timeout() -> void:
 	canAttack = true
 func upgrade() -> void:

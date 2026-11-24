@@ -1,28 +1,176 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvmfwtjqibkmd"]
+[gd_scene format=3 uid="uid://cvmfwtjqibkmd"]
 
 [ext_resource type="PackedScene" uid="uid://kpsenm0edbcl" path="res://Towers/tower.tscn" id="1_bv3cu"]
 [ext_resource type="Texture2D" uid="uid://b45etux7ctnyd" path="res://graphics/shield.png" id="1_i8ymm"]
-[ext_resource type="Script" path="res://Scripts/shield.gd" id="1_ksbgc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jemcy"]
-size = Vector2(12.1092, 16.8822)
+[ext_resource type="Script" uid="uid://2es7bn10pf2l" path="res://Scripts/shield.gd" id="1_ksbgc"]
+[ext_resource type="Script" uid="uid://di550xpuxcxxi" path="res://Scripts/ShiledSeg.gd" id="4_fc6nr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kow8b"]
 
-[node name="Shield" instance=ExtResource("1_bv3cu")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv2a8"]
+size = Vector2(11.009892, 3.9084396)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w1x5"]
+size = Vector2(11.009892, 2.3200321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc6nr"]
+size = Vector2(3.8370943, 10.93455)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djdl8"]
+size = Vector2(2.3966181, 10.727509)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nq10"]
+size = Vector2(10.853145, 3.9142494)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5or57"]
+size = Vector2(9.849025, 2.6971674)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh7q2"]
+size = Vector2(4.0316772, 10.685901)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilrdg"]
+size = Vector2(2.1202989, 9.985777)
+
+[node name="Shield" unique_id=959915663 instance=ExtResource("1_bv3cu")]
 collision_layer = 128
 collision_mask = 25
 script = ExtResource("1_ksbgc")
 type = 3
 
-[node name="CollisionShape2D" parent="." index="0"]
+[node name="CollisionShape2D" parent="." index="0" unique_id=667473861]
 position = Vector2(0.0605469, -0.101854)
-shape = SubResource("RectangleShape2D_jemcy")
 
-[node name="TSprite" parent="." index="1"]
+[node name="TSprite" parent="." index="1" unique_id=496742654]
 texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 8
 
-[node name="CollisionShape2D" parent="Range" index="0"]
+[node name="CollisionShape2D" parent="Range" parent_id_path=PackedInt32Array(1120890758) index="0" unique_id=2023302480]
 shape = SubResource("CircleShape2D_kow8b")
+
+[node name="AimArrow" parent="." index="5" unique_id=892255798]
+visible = false
+
+[node name="ShieldNodes" type="Node2D" parent="." index="6" unique_id=929795725]
+
+[node name="TShield" type="Sprite2D" parent="ShieldNodes" index="0" unique_id=1699166388]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 4
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/TShield" index="0" unique_id=395650954]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/TShield/Area2D" index="0" unique_id=1159553004]
+position = Vector2(0.009330273, -10.4861145)
+shape = SubResource("RectangleShape2D_fv2a8")
+
+[node name="TRShield" type="Sprite2D" parent="ShieldNodes" index="1" unique_id=1601242893]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 3
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/TRShield" index="0" unique_id=534657926]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/TRShield/Area2D" index="0" unique_id=877463157]
+position = Vector2(8.047588, -8.007154)
+rotation = 0.75049156
+shape = SubResource("RectangleShape2D_7w1x5")
+
+[node name="RShield" type="Sprite2D" parent="ShieldNodes" index="2" unique_id=2064800893]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 7
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/RShield" index="0" unique_id=1419073146]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/RShield/Area2D" index="0" unique_id=1490278116]
+position = Vector2(10.456968, 0.014050007)
+shape = SubResource("RectangleShape2D_fc6nr")
+
+[node name="BRShield" type="Sprite2D" parent="ShieldNodes" index="3" unique_id=179906199]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 2
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/BRShield" index="0" unique_id=1156931884]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/BRShield/Area2D" index="0" unique_id=1922303824]
+position = Vector2(7.993201, 7.941103)
+rotation = 0.6981317
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_djdl8")
+
+[node name="BShield" type="Sprite2D" parent="ShieldNodes" index="4" unique_id=177618633]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 6
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/BShield" index="0" unique_id=1111254484]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/BShield/Area2D" index="0" unique_id=1161221213]
+position = Vector2(0.044263005, 10.529137)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_5nq10")
+
+[node name="BLShield" type="Sprite2D" parent="ShieldNodes" index="5" unique_id=274552525]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 1
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/BLShield" index="0" unique_id=933057419]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/BLShield/Area2D" index="0" unique_id=1757376392]
+position = Vector2(-8.244105, 8.059111)
+rotation = 0.6981317
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_5or57")
+
+[node name="LShield" type="Sprite2D" parent="ShieldNodes" index="6" unique_id=1910191657]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+frame = 5
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/LShield" index="0" unique_id=1577680121]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/LShield/Area2D" index="0" unique_id=1695483701]
+position = Vector2(-10.409946, -0.07035351)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_rh7q2")
+
+[node name="TLShield" type="Sprite2D" parent="ShieldNodes" index="7" unique_id=1869851305]
+texture = ExtResource("1_i8ymm")
+vframes = 9
+script = ExtResource("4_fc6nr")
+
+[node name="Area2D" type="Area2D" parent="ShieldNodes/TLShield" index="0" unique_id=1813941392]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldNodes/TLShield/Area2D" index="0" unique_id=1750636721]
+position = Vector2(-8.21471, -7.7221975)
+rotation = 0.6981317
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_ilrdg")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

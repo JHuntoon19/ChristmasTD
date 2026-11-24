@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://uqpemj43di7y" path="res://graphics/SnowMan.png" id="4_bkcti"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lt2wq"]
-radius = 20.0
 
 [node name="SnowDummy" unique_id=505612551 instance=ExtResource("1_gr38m")]
 script = ExtResource("2_3f1e2")

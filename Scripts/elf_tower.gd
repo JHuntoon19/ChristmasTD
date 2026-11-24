@@ -13,8 +13,7 @@ func upgrade() -> void:
 		#Works like a switch
 		match level:
 			0:
-				#Default valus for the range, attack speed, and projectile speed
-				towerRange = 40
+				#Default valus for the attack speed, and projectile speed
 				attackSpeed = 0.75
 				projSpeed = 1
 			1:
