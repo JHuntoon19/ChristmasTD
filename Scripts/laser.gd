@@ -35,6 +35,8 @@ func shoot():
 		#Only want to collide with an area once
 		ray_cast_2d.add_exception(area)
 		#Updates to get next collision in the same frame
+		if area.get_parent() is ShieldSeg:
+			break
 		ray_cast_2d.force_raycast_update()
 #Sets the wait time for the white timer given by UFO
 func updateTimer(wTime : float):

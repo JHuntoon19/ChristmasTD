@@ -38,10 +38,8 @@ func shrink():
 	elif state == TreeState.SMALL:
 		state = TreeState.DEAD
 		deadTree.emit(position)
+		print("Place resource")
 		queue_free()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 #Santa entered the range
 func _on_area_2d_area_entered(area: Area2D) -> void:

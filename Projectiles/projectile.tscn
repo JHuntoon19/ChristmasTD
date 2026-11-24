@@ -1,15 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5f3bah3htew2"]
+[gd_scene format=3 uid="uid://c5f3bah3htew2"]
 
-[ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_3phxn"]
+[ext_resource type="Script" uid="uid://kaxupq5qp0vo" path="res://Scripts/projectile.gd" id="1_3phxn"]
 
-[node name="Projectile" type="Area2D" groups=["Projectile"]]
-scale = Vector2(0.75, 0.75)
+[node name="Projectile" type="Area2D" unique_id=1422609191 groups=["Projectile"]]
 collision_layer = 8
 collision_mask = 162
 script = ExtResource("1_3phxn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=136119342]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1180166985]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

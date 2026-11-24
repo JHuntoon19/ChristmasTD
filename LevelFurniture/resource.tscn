@@ -7,6 +7,7 @@
 size = Vector2(7, 6)
 
 [node name="Resource" type="Node2D" unique_id=1502576529]
+z_index = 1
 script = ExtResource("1_2ayok")
 value = 525
 

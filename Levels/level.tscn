@@ -104,28 +104,26 @@ position = Vector2(17, 76)
 rotation = 1.5707964
 
 [node name="TreeSpawns" type="Node2D" parent="." unique_id=470510517]
-position = Vector2(-480, -270)
 
 [node name="Marker2D" type="Marker2D" parent="TreeSpawns" unique_id=1015413332]
-position = Vector2(634, 341)
+position = Vector2(170, 71)
 
 [node name="Marker2D2" type="Marker2D" parent="TreeSpawns" unique_id=103595099]
-position = Vector2(667, 395)
+position = Vector2(205, 124)
 
 [node name="Marker2D3" type="Marker2D" parent="TreeSpawns" unique_id=60674788]
-position = Vector2(539, 397)
+position = Vector2(121, 142)
 
 [node name="Marker2D4" type="Marker2D" parent="TreeSpawns" unique_id=311675076]
-position = Vector2(732, 342)
+position = Vector2(54, 127)
 
 [node name="Marker2D6" type="Marker2D" parent="TreeSpawns" unique_id=583018187]
-position = Vector2(569, 341)
+position = Vector2(146, 18)
 
 [node name="Marker2D7" type="Marker2D" parent="TreeSpawns" unique_id=2100333507]
-position = Vector2(601, 425)
+position = Vector2(267, 70)
 
 [node name="Trees" type="Node2D" parent="." unique_id=2116861397]
-position = Vector2(-480, -270)
 
 [node name="Resources" type="Node2D" parent="." unique_id=672751737]
 
